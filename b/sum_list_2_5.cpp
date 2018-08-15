@@ -95,27 +95,45 @@ list<int> sum_list_forward(list<int> &a, list<int> &b) {
     return ans;
 }
 
+void print_list(list<int> &ans) {
+    for(auto &&it : ans) {
+        cout << it;
+    }
+    cout << endl;
+}
 void test() {
-    
-    list<int> a1 = {7, 1, 6};
-    list<int> b1 = {5, 9, 2};
-    
     list<int> ans;
     
-    ans = sum_list(a1, b1);
-    for(auto &&it : ans) {
-        cout << it;
-    }
-    cout << endl;
+    list<int> a = {7, 1, 6};
+    list<int> b = {5, 9, 2};
+    ans = sum_list(a, b);
+    print_list(ans);
     
-    list<int> a2 = {6, 1, 7};
-    list<int> b2 = {2, 9, 5};
     
-    ans = sum_list_forward(a2, b2);
-    for(auto &&it : ans) {
-        cout << it;
-    }
-    cout << endl;
+    a = {6, 1, 7};
+    b = {2, 9, 5};
+    ans = sum_list_forward(a, b);
+    print_list(ans);
+    
+    
+    /* edge cases */
+    a = {1};;
+    b = {9, 2, 3, 4};
+    ans = sum_list(a, b);
+    print_list(ans);
+    
+    a = {4, 3, 2, 9};;
+    b = {1};
+    ans = sum_list_forward(a, b);
+    print_list(ans);
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }
@@ -123,4 +141,3 @@ int main(int argc, const char * argv[]) {
     test();
     return 0;
 }
-
