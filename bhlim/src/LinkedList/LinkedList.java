@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.Random;
+
 public class LinkedList<T> {
 	public Node<T> head;
 	public Node<T> tail;
@@ -23,6 +25,21 @@ public class LinkedList<T> {
 			tail = newNode;
 			size++;
 		}
+	}
+	
+	public void makeCircularNode() {
+		if(size == 0)
+			throw new RuntimeException("Head requiered");
+		
+		Random rand = new Random();
+		int randIdx = rand.nextInt(size);
+		
+		Node<T> inputClone = getNode(randIdx).clone();
+		inputClone.next = null;
+		
+		tail.next = inputClone;
+		tail = inputClone;
+		size++;
 	}
 
 	public Node<T> getNode(int idx) {
