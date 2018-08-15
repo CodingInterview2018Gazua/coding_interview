@@ -26,6 +26,26 @@ public class Main {
 		B.addNode(6);
 		
 		ps.println(sum(A, B)); // 617 + 695 = 1312
+		
+		A = new Node(6);
+		A.addNode(1);
+		A.addNode(7);
+		
+		B = new Node(2);
+		B.addNode(9);
+		B.addNode(5);
+		
+		ps.println(sum2(A, B)); // 617 + 295 = 912
+		
+		A = new Node(6);
+		A.addNode(1);
+		A.addNode(7);
+		
+		B = new Node(6);
+		B.addNode(9);
+		B.addNode(5);
+		
+		ps.println(sum2(A, B)); // 617 + 695 = 1312
 	}
 
 	public static int sum(Node A, Node B) {
@@ -51,6 +71,20 @@ public class Main {
 		while(T > 0) {
 			sum = sum * 10 + (T % 10);
 			T /= 10;
+		}
+
+		return sum;
+	}
+	
+	public static int sum2(Node A, Node B) {
+		int sum = 0;
+		while(A != null) {
+			int c = A.data + B.data;
+			if(c >= 10) sum++;
+
+			sum = sum * 10 + (c % 10);
+			A = A.next;
+			B = B.next;
 		}
 
 		return sum;
