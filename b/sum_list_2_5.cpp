@@ -27,27 +27,22 @@ list<int> sum_list(list<int> &a, list<int> &b) {
     int carry = 0;
     list<int>::iterator it_a = begin(a);
     list<int>::iterator it_b = begin(b);
-    while(it_a != end(a) && it_b != end(b)) {
-        int v = carry + *it_a + *it_b;
+    while(it_a != end(a) || it_b != end(b)) {
+        int v = carry;
+        if (it_a != end(a)) {
+            v += *it_a;
+            ++it_a;
+        }
+        if (it_b != end(b)) {
+            v += *it_b;
+            ++it_b;
+        }
         carry = v / 10;
         ans.push_back(v % 10);
-        
-        ++it_a;
-        ++it_b;
-        
     }
-    while(it_a != end(a)) {
-        int v = (carry + *it_a);
-        carry = v / 10;
-        ans.push_back(v % 10);
-        ++it_a;
-    }
-    while(it_b != end(b)) {
-        int v = (carry + *it_b);
-        carry = v / 10;
-        ans.push_back(v % 10);
-        ++it_b;
-    }
+    if (carry > 0)
+        ans.push_back(carry);
+    
     return ans;
 }
 
@@ -67,31 +62,23 @@ list<int> sum_list_forward(list<int> &a, list<int> &b) {
     }
     
     
-    while(!st_a.empty() && !st_b.empty()) {
-        int it_a = st_a.top();
-        int it_b = st_b.top();
-        int v = carry + it_a + it_b;
-        carry = v / 10;
-        ans.push_back(v % 10);
+    while(!st_a.empty() || !st_b.empty()) {
+        int v = carry;
         
-        st_a.pop();
-        st_b.pop();
+        if (!st_a.empty()) {
+            v += st_a.top();
+            st_a.pop();
+        }
+        if (!st_b.empty()) {
+            v += st_b.top();
+            st_b.pop();
+        }
         
-    }
-    while(!st_a.empty()) {
-        int it_a = st_a.top();
-        int v = (carry + it_a);
         carry = v / 10;
         ans.push_back(v % 10);
-        st_a.pop();
     }
-    while(!st_b.empty()) {
-        int it_b = st_b.top();
-        int v = (carry + it_b);
-        carry = v / 10;
-        ans.push_back(v % 10);
-        st_b.pop();
-    }
+    if (carry > 0)
+        ans.push_back(carry);
     return ans;
 }
 
@@ -122,22 +109,19 @@ void test() {
     ans = sum_list(a, b);
     print_list(ans);
     
-    a = {4, 3, 2, 9};;
+    a = {4, 3, 2, 9};
     b = {1};
     ans = sum_list_forward(a, b);
     print_list(ans);
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    a = {0, 0, 3};
+    b = {0, 0, 7};
+    ans = sum_list(a, b);
+    print_list(ans);
+
 }
 int main(int argc, const char * argv[]) {
     test();
     return 0;
 }
+
