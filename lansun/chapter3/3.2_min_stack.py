@@ -41,21 +41,3 @@ stack.push(5)
 stack.peek()
 print "stack     >>>> {}".format(stack.storage)
 print "min stack >>>> {}".format(stack.minimum())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

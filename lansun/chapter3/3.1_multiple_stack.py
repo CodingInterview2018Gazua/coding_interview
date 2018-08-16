@@ -89,21 +89,3 @@ three_stack.push(3, 8)
 
 print "list          >>>> {}".format(lists)
 print "divide stacks >>>> {}".format(three_stack.storage)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
