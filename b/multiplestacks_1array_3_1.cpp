@@ -1,10 +1,3 @@
-//
-//  main.cpp
-//  three_stacks_one_array
-//
-//  Created by 김인태 on 2018. 8. 16..
-//  Copyright © 2018년 김인태. All rights reserved.
-//
 
 #include <iostream>
 
@@ -39,7 +32,7 @@ namespace b {
             return nullptr;
         }
         void Release(Node *addr) {
-            int idx = (arr - addr) / sizeof (arr[0]);
+            int idx = (addr - arr) / sizeof (arr[0]);
             occupied[idx] = false;
         }
         
@@ -130,17 +123,22 @@ void test() {
     b::Stack st2(&arr_mem);
     b::Stack st3(&arr_mem);
     
-    st1.Push(1);
-    st1.Push(2);
-    st1.Push(3);
-    st2.Push(10);
-    st2.Push(20);
-    st3.Push(100);
+    st1.Push(10);
+    st1.Push(20);
+    st1.Push(30);
+    st2.Push(100);
+    st2.Push(200);
+    st3.Push(1000);
     
     st1.Pop();
     cout << st1.Peek() << " " << st1.Size() << endl;
     cout << st2.Peek() << " " << st2.Size() << endl;
     cout << st3.Peek() << " " << st3.Size() << endl;
+    
+    st3.Push(1000);
+    cout << st3.Peek() << " " << st3.Size() << endl;
+    
+    arr_mem.PrintMemStatus();
     
 }
 
