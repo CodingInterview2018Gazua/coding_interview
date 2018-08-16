@@ -6,29 +6,28 @@
 
 
 def is_unique_string(string):
-    string = string.strip()
     if len(string) > 256:
         return False
 
+    string = string.strip()
+    alphabet_a = 'a'
+    if string.isupper():
+        alphabet_a = 'A'
+
     checker = 0
     for char in string:
-        char_to_digit = ord(char.lower()) - ord('a')
-        shift = 1 << char_to_digit
+        value = ord(char) - ord(alphabet_a)
+        shift = 1 << value
+
         if (checker & shift) > 0:
             return False
+
         checker |= shift
 
     return True
 
-
 print is_unique_string("abcdef")
+print is_unique_string("aff")
 print is_unique_string("abcdeffff")
 print is_unique_string("abcdeffff ")
 print is_unique_string(" abcdef ")
-
-
-
-
-
-
-
