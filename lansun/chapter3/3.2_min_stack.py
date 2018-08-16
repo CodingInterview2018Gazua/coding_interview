@@ -9,14 +9,17 @@ class MinStack:
     def __init__(self):
         self.storage = []
         self.min_storage = []
+        self.min = 99999
 
     def push(self, data):
         self.storage.append(data)
-        if len(self.min_storage) == 0 or data <= self.min_storage[-1]:
-            self.min_storage.append(data)
+        if self.min > data:
+            self.min = data
+        self.min_storage.append(self.min)
 
     def pop(self):
         self.storage.pop()
+        self.min_storage.pop()
 
     def is_empty(self):
         return len(self.storage) == 0
@@ -32,12 +35,10 @@ class MinStack:
 
 
 stack = MinStack()
-stack.push(9)
 stack.push(1)
-stack.push(2)
 stack.push(3)
-stack.push(4)
 stack.push(5)
-stack.peek()
+stack.pop()
+stack.pop()
 print "stack     >>>> {}".format(stack.storage)
 print "min stack >>>> {}".format(stack.minimum())
