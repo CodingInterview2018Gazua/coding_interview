@@ -1,57 +1,51 @@
 package Chapter3;
 
-public class Stack {
-	private int[][] mStack;
-	private int[] mTops = {-1,-1,-1};
+public class Stack<T> {
+	private T[] mStack;
+	private int mTop = -1;
 	
+	@SuppressWarnings("unchecked")
 	public Stack(int size) {
-		mStack = new int[3][size];
+		mStack = (T[]) new Object[size];
 	}
 	
-	public boolean push(int position, int data) {
-		int idx = mTops[position];
-		
-		if(isFull(position)) {
-			System.out.printf("position %d stack is full\n", position);
+	public boolean push(T data) {
+		if(isFull()) {
+			System.out.printf("stack is full\n");
 			return false;
 		}
 			
-		idx++;
-		mStack[position][idx] = data;
-		mTops[position] = idx;
+		mTop++;
+		mStack[mTop] = data;
 		
 		return true;
 	}
 	
-	public int pop(int position) {
-		int idx = mTops[position];
-		
-		if(isEmpty(position)) {
-			System.out.printf("position %d stack is empty\n", position);
-			return -1;
+	public T pop() {
+		if(isEmpty()) {
+			System.out.printf("stack is empty\n");
+			return null;
 		}
 			
-		int data = mStack[position][idx];
-		mStack[position][idx] = 0;
-		mTops[position] = --idx;
-		
+		T data = mStack[mTop];
+		mStack[mTop] = null;
+		--mTop;
+	
 		return data;
 	}
 	
-	public boolean isFull(int position) {
-		return mTops[position] == mStack[position].length -1;
+	public boolean isFull() {
+		return mTop == mStack.length -1;
 	}
 	
-	public boolean isEmpty(int position) {
-		return mTops[position] == -1;
+	public boolean isEmpty() {
+		return mTop == -1;
 	}
 	
 	public void printStack() {
-		for(int[] row : mStack) {
-			for (int data : row) {
-				System.out.print(data);
-			}
-			System.out.println("\n");
+		for (T data : mStack) {
+			if(data != null)
+				System.out.println(data);
 		}
 	}
 }
