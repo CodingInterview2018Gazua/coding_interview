@@ -10,9 +10,7 @@ def is_unique_string(string):
         return False
 
     string = string.strip()
-    alphabet_a = 'a'
-    if string.isupper():
-        alphabet_a = 'A'
+    alphabet_a = 'A' if string.isupper() else 'a'
 
     checker = 0
     for char in string:
@@ -26,7 +24,8 @@ def is_unique_string(string):
 
     return True
 
-print is_unique_string("abcdef")
+
+print is_unique_string("abb")
 print is_unique_string("aff")
 print is_unique_string("abcdeffff")
 print is_unique_string("abcdeffff ")
