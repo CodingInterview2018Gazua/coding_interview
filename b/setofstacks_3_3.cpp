@@ -6,9 +6,9 @@ namespace b{
         int k;
         node *next;
     };
-
+    
     class stack{
-        public:
+    public:
         stack(int _cap) : cap(_cap), sz(0), top(nullptr), next(nullptr) {}
         ~stack() {
             while(top != nullptr) {
@@ -24,17 +24,17 @@ namespace b{
             n->next = top;
             top = n;
             ++sz;
-
+            return true;
         }
         int peek() {
             if (top == nullptr)
-              return -1;
+                return -1;
             else
-              return top->k;
+                return top->k;
         }
         bool pop() {
             if (top == nullptr)
-              return false;
+                return false;
             node* tmp = top;
             top = top->next;
             delete tmp;
@@ -52,17 +52,17 @@ namespace b{
             }
             cout << endl;
         }
-
+        
         stack *next;
-        private:
+    private:
         int cap;
         int sz;
         node *top;
         
     };
-
+    
     class setofstacks {
-        public:
+    public:
         setofstacks(int _cap) : cap(_cap), top(nullptr) {}
         ~setofstacks() {
             while(top != nullptr) {
@@ -83,7 +83,7 @@ namespace b{
         }
         void pop() {
             if (top == nullptr)
-              return;
+                return;
             if (top->pop() == false) {
                 stack *t = top;
                 top = top->next;
@@ -95,7 +95,7 @@ namespace b{
         }
         int peek() {
             if (top == nullptr)
-              return -1;
+                return -1;
             return top->peek();
         }
         void print() {
@@ -105,10 +105,10 @@ namespace b{
                 t = t->next;
             }
         }
-        private:
+    private:
         int cap;
         stack *top;
-
+        
     };
 }
 
@@ -124,18 +124,18 @@ void test() {
     s.push(8);
     s.push(9);
     s.push(10);
-
+    
     
     s.print();
-
+    cout << "--" << endl;
     s.pop();
     s.pop();
     s.pop();
     s.pop();
     s.pop();
-
+    
     s.print();
-
+    
 }
 
 int main() {
