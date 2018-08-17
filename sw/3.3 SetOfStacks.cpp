@@ -1,6 +1,13 @@
+
+//  SetOfStacks.cpp
+//  Algorithm
+//
+//  Created by sw on 2018. 08. 17
+//  Copyright © 2018년 sw. All rights reserved.
+//
+
 #include <iostream>
 #include <algorithm>
-#include <vector>
 #define MAX 100
 #define STACK_SIZE 20
 
