@@ -7,7 +7,7 @@
 def replace_matrix1(m, n):
     matrix = [[0] * m for i in range(n)]
 
-    for i in range(n)        :
+    for i in range(n):
         for j in range(n):
             matrix[i][j] = i * j
 

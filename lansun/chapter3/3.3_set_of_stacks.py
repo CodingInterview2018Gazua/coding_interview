@@ -25,22 +25,22 @@ class SetOfStack:
         if len(self.stacks[-1]) == 0:
             self.stacks.pop()
 
+
 # 출력
 set_of_stack = SetOfStack(capacity=3)
-set_of_stack.push(1)
-set_of_stack.push(2)
-set_of_stack.push(3)
-set_of_stack.push(4)
-set_of_stack.push(5)
-set_of_stack.push(6)
-set_of_stack.push(7)
-set_of_stack.push(7)
-
+[set_of_stack.push(i) for i in range(1, 11)]
 print "stacks push >>>>>>>>>>>>>"
 print set_of_stack.stacks
 print
+
+# output
+# stacks push >>>>>>>>>>>>>
+# [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]
+
 print "stacks pop  >>>>>>>>>>>>>"
-set_of_stack.pop()
-set_of_stack.pop()
-set_of_stack.pop()
+[set_of_stack.pop() for i in range(3)]
 print set_of_stack.stacks
+
+# output
+# stacks pop  >>>>>>>>>>>>>
+# [[1, 2, 3], [4, 5, 6], [7]]
