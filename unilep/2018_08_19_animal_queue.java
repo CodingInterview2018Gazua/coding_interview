@@ -12,19 +12,19 @@ public class Main {
 		Queue<Animal> queue = new Queue<>();
 		queue.enqueue(new Dog("A"));
 		queue.enqueue(new Cat("B"));
-		queue.enqueue(new Dog("C"));
+		queue.enqueue(new Cat("C"));
 		queue.enqueue(new Cat("D"));
-		queue.enqueue(new Cat("E"));
-		
-		ps.println(queue.dequeueDog().getName()); // C
-		
-		ps.println(queue.dequeueAny().getName()); // E
+		queue.enqueue(new Dog("E"));
 		
 		ps.println(queue.dequeueDog().getName()); // A
 		
-		ps.println(queue.dequeueCat().getName()); // D
-		
 		ps.println(queue.dequeueAny().getName()); // B
+		
+		ps.println(queue.dequeueDog().getName()); // E
+		
+		ps.println(queue.dequeueCat().getName()); // C
+		
+		ps.println(queue.dequeueAny().getName()); // D
 	}
 }
 
@@ -79,7 +79,7 @@ class Queue<T extends Animal> {
 	
 	public T dequeueAny() {
 		T animal = null;
-		while((animal = anyLinkedList.removeLast()).isOut());
+		while((animal = anyLinkedList.removeFirst()).isOut());
 		animal.setOut(true);
 		return animal;
 		
@@ -87,14 +87,14 @@ class Queue<T extends Animal> {
 	
 	public T dequeueDog() {
 		T animal = null;
-		while((animal = dogLinkedList.removeLast()).isOut());
+		while((animal = dogLinkedList.removeFirst()).isOut());
 		animal.setOut(true);
 		return animal;
 	}
 	
 	public T dequeueCat() {
 		T animal = null;
-		while((animal = catLinkedList.removeLast()).isOut());
+		while((animal = catLinkedList.removeFirst()).isOut());
 		animal.setOut(true);
 		return animal;
 	}

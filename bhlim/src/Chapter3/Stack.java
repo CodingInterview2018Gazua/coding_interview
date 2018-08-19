@@ -2,8 +2,8 @@ package Chapter3;
 
 public class Stack<T> {
 	private T[] mStack;
-	private int mTop = -1;
-	
+	public int top = -1;
+
 	@SuppressWarnings("unchecked")
 	public Stack(int size) {
 		mStack = (T[]) new Object[size];
@@ -15,8 +15,8 @@ public class Stack<T> {
 			return false;
 		}
 			
-		mTop++;
-		mStack[mTop] = data;
+		top++;
+		mStack[top] = data;
 		
 		return true;
 	}
@@ -27,19 +27,27 @@ public class Stack<T> {
 			return null;
 		}
 			
-		T data = mStack[mTop];
-		mStack[mTop] = null;
-		--mTop;
+		T data = mStack[top];
+		mStack[top] = null;
+		--top;
 	
 		return data;
 	}
 	
+	public T peek() {
+		if(isEmpty()) {
+			return null;
+		}
+			
+		return mStack[top];
+	}
+	
 	public boolean isFull() {
-		return mTop == mStack.length -1;
+		return top == mStack.length -1;
 	}
 	
 	public boolean isEmpty() {
-		return mTop == -1;
+		return top == -1;
 	}
 	
 	public void printStack() {
