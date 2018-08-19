@@ -1,10 +1,3 @@
-//
-//  main.cpp
-//  stack_sort
-//
-//  Created by 김인태 on 2018. 8. 19..
-//  Copyright © 2018년 김인태. All rights reserved.
-//
 
 #include <iostream>
 #include <stack>
