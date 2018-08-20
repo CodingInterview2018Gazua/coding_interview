@@ -25,8 +25,8 @@ def is_unique_string(string):
     return True
 
 
-print is_unique_string("abb")
-print is_unique_string("aff")
-print is_unique_string("abcdeffff")
-print is_unique_string("abcdeffff ")
-print is_unique_string(" abcdef ")
+print is_unique_string("abb")        # False
+print is_unique_string("aff")        # False
+print is_unique_string("abcdeffff")  # False
+print is_unique_string("abcdeffff ") # False
+print is_unique_string(" abcdef ")   # True

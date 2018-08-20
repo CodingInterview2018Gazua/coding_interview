@@ -18,9 +18,9 @@ def is_rotation_words(word1, word2):
     return is_substring(word1, word2)
 
 
-print is_rotation_words(word1='waterbottle', word2='erbottlewat')
-print is_rotation_words(word1='waterbottle', word2='erbottlwwat')
-print is_rotation_words(word1='waterbottle', word2='rbottlewate')
-print is_rotation_words(word1='waterbottle', word2='lewaterbott')
-print is_rotation_words(word1='appple', word2='ppleap')
-print is_rotation_words(word1='appple', word2='ppplea')
+print is_rotation_words(word1='waterbottle', word2='erbottlewat')        # True
+print is_rotation_words(word1='waterbottle', word2='erbottlwwat')        # False
+print is_rotation_words(word1='waterbottle', word2='rbottlewate')        # True
+print is_rotation_words(word1='waterbottle', word2='lewaterbo # Truett') # True
+print is_rotation_words(word1='appple', word2='ppleap')                  # True
+print is_rotation_words(word1='appple', word2='ppplea')                  # True

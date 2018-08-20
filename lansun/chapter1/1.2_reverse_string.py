@@ -24,5 +24,10 @@ def reverse3(string):
         return string
 
 print reverse1('abc ')
+# cba
+
 print reverse2('cicao pizza ')
+# azzip oacic
+
 print reverse3('go for it')
+# go for it

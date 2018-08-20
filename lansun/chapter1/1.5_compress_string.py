@@ -14,11 +14,16 @@ def compress(string):
             character += str(count) + char
             count = 1
 
-    character + str(count)
+    character += str(count)
 
     return character if len(character) <= len(string) else string
 
 
 print compress('aaaabbcdeeee')
+# a4b2c1d1e4
+
 print compress('aaaab')
+# a4b1
+
 print compress('abcd')
+# abcd

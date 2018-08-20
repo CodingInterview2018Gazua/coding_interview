@@ -15,3 +15,4 @@ def replace_space(string):
 
 
 print replace_space('Mr John Smith ')
+# Mr%20John%20Smith

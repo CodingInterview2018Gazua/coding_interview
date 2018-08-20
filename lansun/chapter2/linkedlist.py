@@ -89,4 +89,4 @@ linkedlist2.add(9)
 linkedlist2.add(5)
 
 print linkedlist1.sum(linkedlist1, linkedlist2)
-print
+# 912

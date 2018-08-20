@@ -12,6 +12,6 @@ def is_permutaion(string1, string2):
     return True if string2 in string1 else False
 
 
-print is_permutaion('abc', 'bca')
-print is_permutaion('abc', 'cba')
-print is_permutaion('abc', 'cab')
+print is_permutaion('abc', 'bca') # True
+print is_permutaion('abc', 'cba') # False
+print is_permutaion('abc', 'cab') # True

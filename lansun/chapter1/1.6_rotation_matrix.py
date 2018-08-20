@@ -13,11 +13,24 @@ def rotation_matrix(n):
 
     return matrix, zip(*matrix[::-1])
 
+
 matrix, rotation_matrix = rotation_matrix(4)
 print "original matrix   >>>>>\n",
 for i in matrix:
     print i
 
+    # original matrix   >>>>>
+    # [0, 1, 2, 3]
+    # [1, 2, 3, 4]
+    # [2, 3, 4, 5]
+    # [3, 4, 5, 6]
+
 print "rotation matrix   >>>>>\n",
 for i in rotation_matrix:
     print list(i)
+
+    # rotation matrix   >>>>>
+    # [3, 2, 1, 0]
+    # [4, 3, 2, 1]
+    # [5, 4, 3, 2]
+    # [6, 5, 4, 3]
