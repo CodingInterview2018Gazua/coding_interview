@@ -5,14 +5,14 @@ public class TreeNode<T> {
 	public TreeNode<T> left;
 	public TreeNode<T> right;
 	int depth;
-			
-    public TreeNode(T data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
-    
-    public Object getData(){
-        return this.data;
-    }
+
+	public TreeNode(T data) {
+		this.data = data;
+		this.left = null;
+		this.right = null;
+	}
+
+	public Object getData() {
+		return this.data;
+	}
 }

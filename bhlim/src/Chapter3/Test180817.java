@@ -3,7 +3,7 @@ package Chapter3;
 public class Test180817 {
 	public static void main(String[] args) {
 		SetOfStacks<Integer> stack = new SetOfStacks<>(3);
-	
+
 		stack.push(1);
 		stack.push(2);
 		stack.push(3);
@@ -15,11 +15,10 @@ public class Test180817 {
 		stack.push(9);
 		stack.push(10);
 		stack.push(11);
-		
+
 		stack.pop();
 		stack.pop();
 		stack.pop();
-		
 
 		stack.printStack();
 	}

@@ -11,10 +11,10 @@ public class Node<T> implements Cloneable {
 
 	public Node<T> clone() {
 		Node<T> newNode = new Node<>(this.data);
-		
-		if(this.next != null)
+
+		if (this.next != null)
 			newNode.next = this.next.clone();
-		
+
 		return newNode;
 	}
 }

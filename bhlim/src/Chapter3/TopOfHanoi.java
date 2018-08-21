@@ -23,9 +23,9 @@ public class TopOfHanoi {
 	}
 
 	void hanoi(Position from, Position by, Position to) {
-		if(mLeft.top == -1)
+		if (mLeft.top == -1)
 			return;
-		
+
 		if (mLeft.top == 0)
 			move(from, to);
 		else {

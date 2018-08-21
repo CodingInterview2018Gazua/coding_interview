@@ -10,39 +10,39 @@ public class SetOfStacks<T> {
 		mSize = size;
 		mStacks.add(new Stack<>(mSize));
 	}
-	
+
 	public void push(T data) {
-		if(isFull()) {
+		if (isFull()) {
 			Stack<T> stack = new Stack<>(mSize);
 			stack.push(data);
 			mStacks.add(stack);
 		} else {
-			mStacks.get(mStacks.size() -1).push(data);
+			mStacks.get(mStacks.size() - 1).push(data);
 		}
 	}
-	
+
 	public T pop() {
-		if(isEmpty()) {
+		if (isEmpty()) {
 			System.out.printf("stack is empty\n");
 			return null;
 		} else {
-			
-			return mStacks.get(mStacks.size() -1).pop();
+
+			return mStacks.get(mStacks.size() - 1).pop();
 		}
 	}
-	
+
 	private boolean isFull() {
-		return mStacks.get(mStacks.size() -1).isFull();
+		return mStacks.get(mStacks.size() - 1).isFull();
 	}
-		
+
 	public boolean isEmpty() {
-		if(mStacks.size() == 1) {
+		if (mStacks.size() == 1) {
 			return mStacks.get(0).isEmpty();
 		} else {
 			return false;
 		}
 	}
-	
+
 	public void printStack() {
 		for (Stack<T> stack : mStacks) {
 			stack.printStack();
