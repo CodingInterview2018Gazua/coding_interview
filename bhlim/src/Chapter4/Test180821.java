@@ -1,6 +1,6 @@
 package Chapter4;
 
-public class Test180816 {
+public class Test180821 {
 	public static void main(String[] args) {
 		BinaryTree<Integer> tree = new BinaryTree<>();
 		
