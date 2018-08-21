@@ -31,9 +31,7 @@ class Sort:
         for i in range(stack.length()):
             top = stack.storage[i]
             j = i-1 # last
-            print "top >>>", top, stack.storage[i-1], j
             while (j > -1) and top < stack.storage[j]:
-                print stack.storage[j+1], stack.storage[j]
                 stack.storage[j+1] = stack.storage[j]
                 j -= 1
             stack.storage[j+1] = top

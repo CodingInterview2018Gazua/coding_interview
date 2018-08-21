@@ -27,24 +27,24 @@ class Graph
         }
         qu.push(u);
         visited[u] = u;
+        auto bfs = [](int s, int d, int visited[], queue<int> &q, vector<int> *adj) -> bool {
+            int t = q.front();
+            q.pop();
+            for (auto &&it : adj[t])
+            {
+                if (visited[it] == -1)
+                {
+                    if (it == d)
+                        return true;
+                    visited[it] = s;
+                    q.push(it);
+                }
+            }
+            return false;
+        };
 
         while (!qu.empty())
         {
-            auto bfs = [](int s, int d, int visited[], queue<int> &q, vector<int> *adj) -> bool {
-                int t = q.front();
-                q.pop();
-                for (auto &&it : adj[t])
-                {
-                    if (visited[it] == -1)
-                    {
-                        if (it == d)
-                            return true;
-                        visited[it] = s;
-                        q.push(it);
-                    }
-                }
-                return false;
-            };
             if (bfs(u, v, visited, qu, adj) == true)
                 return true;
         }
