@@ -25,4 +25,4 @@ graph = {'A': set(['B', 'C']),
          'E': set(['B', 'F']),
          'F': set(['C', 'E'])}
 
-print exist_bfs_paths(graph, 'A', 'F')
+print exist_bfs_paths(graph, 'A', 'F') # True
