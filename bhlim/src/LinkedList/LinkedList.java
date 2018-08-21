@@ -26,17 +26,17 @@ public class LinkedList<T> {
 			size++;
 		}
 	}
-	
+
 	public void makeCircularNode() {
-		if(size == 0)
+		if (size == 0)
 			throw new RuntimeException("Head requiered");
-		
+
 		Random rand = new Random();
 		int randIdx = rand.nextInt(size);
-		
+
 		Node<T> inputClone = getNode(randIdx).clone();
 		inputClone.next = null;
-		
+
 		tail.next = inputClone;
 		tail = inputClone;
 		size++;
