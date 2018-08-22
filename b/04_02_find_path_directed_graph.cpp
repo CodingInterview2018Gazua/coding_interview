@@ -32,10 +32,10 @@ class Graph
             q.pop();
             for (auto &&it : adj[t])
             {
+                if (it == d)
+                    return true;
                 if (visited[it] == -1)
                 {
-                    if (it == d)
-                        return true;
                     visited[it] = s;
                     q.push(it);
                 }
@@ -68,6 +68,9 @@ void test()
     cout << g.hasRoute(1, 1) << endl;
     cout << g.hasRoute(1, 6) << endl;
     cout << g.hasRoute(1, 5) << endl;
+
+    g.addEdge(5, 1);
+    cout << g.hasRoute(1, 1) << endl;
 }
 
 int main()
