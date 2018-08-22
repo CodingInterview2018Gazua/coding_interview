@@ -33,9 +33,8 @@ class Graph:
         return False
 
 
-graph = Graph()
-
 ## ===> First example
+graph = Graph()
 graph.add_edge(0, 1)
 graph.add_edge(0, 2)
 graph.add_edge(1, 2)
@@ -50,6 +49,7 @@ print graph.BFS(1)
 # True
 
 ## ===> Second example
+graph = Graph()
 graph.add_edge(0, 1)
 graph.add_edge(1, 2)
 graph.add_edge(2, 3)
