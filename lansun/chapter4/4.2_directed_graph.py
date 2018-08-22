@@ -24,12 +24,10 @@ class Graph:
         while queue:
             s = queue.pop(0)
             for i in self.graph[s]:
+                if i == end: return True
                 if not visited[i]:
-                    if i == end:
-                        return True
-                    else:
-                        visited[i] = True
-                        queue.append(i)
+                    visited[i] = True
+                    queue.append(i)
 
         return False
 
@@ -60,5 +58,5 @@ graph.add_edge(5, 1)
 
 print graph.graph
 # defaultdict(<type 'list'>, {0: [2], 1: [2], 2: [3], 3: [4], 4: [5], 5: [1]})
-print graph.BFS(1, 2)
+print graph.BFS(1, 1)
 # True
