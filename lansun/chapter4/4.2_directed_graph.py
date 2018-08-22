@@ -14,7 +14,7 @@ class Graph:
     def add_edge(self, u, v):
         self.graph[u].append(v)
 
-    def BFS(self, start):
+    def BFS(self, start, end):
         visited = [False] * (len(self.graph))
         queue = []
 
@@ -25,10 +25,11 @@ class Graph:
             s = queue.pop(0)
             for i in self.graph[s]:
                 if not visited[i]:
-                    queue.append(i)
-                    visited[i] = True
-                else:
-                    return True
+                    if i == end:
+                        return True
+                    else:
+                        visited[i] = True
+                        queue.append(i)
 
         return False
 
@@ -45,18 +46,19 @@ graph.add_edge(3, 3)
 print graph.graph
 # defaultdict(<type 'list'>, {0: [1, 2], 1: [2], 2: [2, 3], 3: [3]})
 
-print graph.BFS(1)
-# True
+print graph.BFS(1, 1)
+# False
 
 ## ===> Second example
 graph = Graph()
-graph.add_edge(0, 1)
+graph.add_edge(0, 2)
 graph.add_edge(1, 2)
 graph.add_edge(2, 3)
 graph.add_edge(3, 4)
-graph.add_edge(4, 4)
+graph.add_edge(4, 5)
+graph.add_edge(5, 1)
 
 print graph.graph
-# defaultdict(<type 'list'>, {0: [1, 2, 1], 1: [2, 2], 2: [2, 3, 3], 3: [3, 4], 4: [4]})
-print graph.BFS(2)
+# defaultdict(<type 'list'>, {0: [2], 1: [2], 2: [3], 3: [4], 4: [5], 5: [1]})
+print graph.BFS(1, 2)
 # True
