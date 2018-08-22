@@ -1,7 +1,7 @@
 package com.example.lib.chapter4
 
 fun main(args : Array<String>) {
-    val dg = DirectedGragh()
+    val dg = DirectedGraph()
 
     val v0 = Vertex(0)
     val v1 = Vertex(1)

@@ -7,12 +7,9 @@ data class Vertex(val data: Int) {
     override fun toString(): String {
         return data.toString()
     }
-
-    override fun equals(other: Any?) = data == (other as Vertex).data
-    override fun hashCode() = data
 }
 
-class DirectedGragh {
+class DirectedGraph {
     private val mMap: MutableMap<Vertex, MutableSet<Vertex>> = HashMap()
 
     private fun addVertex(vertex: Vertex): Boolean {
@@ -41,7 +38,12 @@ class DirectedGragh {
     fun isConnected(from: Vertex, to: Vertex): Boolean {
         if (mMap.containsKey(from)) {
             val dests = mMap[from]
-            return dests?.contains(to) == true
+
+            if(dests?.contains(to) == true) {
+                return true
+            }  else {
+
+            }
         }
 
         return false
