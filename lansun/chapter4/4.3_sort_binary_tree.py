@@ -5,25 +5,34 @@
 # 배열 내 모든 원소는 배열 내에서 유일한 값을 갖는다.
 
 
-class BinaryTree:
+class Node:
     def __init__(self, data):
         self.data = data
-        self.left = []
-        self.right = []
+        self.left = None
+        self.right = None
 
     def insert(self, left, right):
         self.left.append(left)
         self.right.append(right)
 
-    def __repr__(self):
-        return "{} <- {} -> {}".format(self.left[0], self.data, self.right[0])
+
+def create_bst(arr, start, end):
+    if end < start:
+        return None
+
+    mid_index = (start + end) / 2
+    node = Node(arr[mid_index])
+    print node.data
+    node.left = create_bst(arr, start, mid_index - 1)
+    node.right = create_bst(arr, mid_index + 1, end)
+
+    return node
 
 
-arr = [0, 1, 2, 3, 4]
-arr_mid = len(arr) / 2
-
-bt = BinaryTree(arr[arr_mid])
-bt.insert(arr[:arr_mid], arr[arr_mid+1:])
-
-print bt
-# [0, 1] <- 2 -> [3, 4]
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+root = create_bst(arr, 0, len(arr) - 1)
+#         5
+#       1  2
+#      3    4
+#    6       7
+#   8         9
