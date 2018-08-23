@@ -15,44 +15,52 @@ class Node:
 		self.right = Node(data)
 
 class LinkedList:
+	
 	def __init__(self, data):
 		self.data = data
 		self.next = None
 	
 	def addNext(self, data):
-		tempNext = self.next
-		while tempNext is not None:
+		tempNext = self
+		while tempNext.next is not None:
 			tempNext = tempNext.next
 			
-		tempNext = LinkedList(data)
+		tempNext.next = LinkedList(data)
+		
+	def setNext(self, node):
+		self.next = node
 	
-	def __str__(self):
-		return self.data
+	def __repr__(self):
+		tempNext = self
+		ret = [ ]
+		while tempNext.next is not None:
+			ret.append(tempNext.data)
+			tempNext = tempNext.next
+		ret.append(tempNext.data)
+		return repr(ret)
 		
 def bfs(root):
 	q = Queue.Queue()
 	q.put(root)
 	
-	linkedList = [ ]
+	root_list = [ ]
 	
 	while not q.empty():
 		size = q.qsize()
-		linkedlist = LinkedList('dummy')
+		linkedlist = LinkedList('')
 		
 		array = [ ]
 		for i in range(size):
 			node = q.get()
-			array.append(node.data)
-			linkedlist.addNext(node)
+			linkedlist.addNext(node.data)
 			if node.left is not None:
 				q.put(node.left)
 			if node.right is not None:
 				q.put(node.right)
 				
-		print array # actually linkedlist result #
-		linkedList.append(linkedlist)
+		root_list.append(linkedlist)
 		
-	return linkedList
+	return root_list
 		
 		
 root = Node(1)
@@ -66,5 +74,5 @@ root.right.addLeft(2)
 root.right.addRight(6)
 
 result = bfs(root)
-print str(result)
+print repr(result)
 
