@@ -5,3 +5,4 @@
 /bin/
 .vscode
 a.out*
+b_test.cpp
