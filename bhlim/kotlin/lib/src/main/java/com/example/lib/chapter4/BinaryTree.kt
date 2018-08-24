@@ -9,9 +9,11 @@ class BinaryTree<T> {
     var root: TreeNode<T>? = null
     var linkedRoot: TreeNode<LinkedList<Int>>? = null
 
-    var count = 0
     var lastDepth = 0
     var nodeCounter: MutableMap<Int, Int> = HashMap()
+
+    var nodeDatas: MutableSet<Int> = HashSet()
+    var isBinarySearchTree = true
 
     fun createNode(data: T, bt1: TreeNode<T>? = null, bt2: TreeNode<T>? = null): TreeNode<T> {
         val root = TreeNode(data)
@@ -36,7 +38,6 @@ class BinaryTree<T> {
 
             preOrder(root.left, depth + 1)
             preOrder(root.right, depth + 1)
-            count++
 
             if (lastDepth <= depth)
                 lastDepth= depth
@@ -57,7 +58,6 @@ class BinaryTree<T> {
 
             preOrderWithLinkedList(root.left, depth + 1)
             preOrderWithLinkedList(root.right, depth + 1)
-            count++
 
             if (lastDepth <= depth)
                 lastDepth= depth
@@ -77,7 +77,6 @@ class BinaryTree<T> {
 
             calculateNodeAndDepth(root.left, depth + 1)
             calculateNodeAndDepth(root.right, depth + 1)
-            count++
 
             if (lastDepth <= depth)
                 lastDepth = depth
@@ -88,5 +87,30 @@ class BinaryTree<T> {
     fun isBalanced(): Boolean {
         val lastDepthCount = nodeCounter[lastDepth]
         return lastDepthCount?.toDouble() == Math.pow(2.0, lastDepth.toDouble())
+    }
+
+    fun checkBinarySearchTree(node: TreeNode<Int>?) {
+        if (isBinarySearchTree && node != null) {
+            if(nodeDatas.contains(node.data)) {
+                isBinarySearchTree = false
+                return
+            } else {
+                nodeDatas.add(node.data)
+            }
+
+            if(node.left != null &&  node.left?.data!! < node.data) {
+                checkBinarySearchTree(node.left)
+            } else if(node.left != null){
+                isBinarySearchTree = false
+                return
+            }
+
+            if(node.right != null &&  node.right?.data!! > node.data) {
+                checkBinarySearchTree(node.right)
+            } else if(node.right != null){
+                isBinarySearchTree = false
+                return
+            }
+        }
     }
 }
