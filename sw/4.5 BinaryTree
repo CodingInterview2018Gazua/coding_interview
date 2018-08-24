@@ -1,0 +1,91 @@
+/*
+ 주어진 유향그래프에서 특정한 두 노드간에 경로가 존재하는지
+ 판별하는 알고리즘을 구현하라.
+ 
+ */
+#include <iostream>
+#include <stack>
+#include <queue>
+#define MAX 1001
+
+using namespace std;
+class Node{
+    friend class BinaryTree;
+private:
+    int data;
+    Node* left;
+    Node* right;
+public:
+    Node(int input){
+        data=input;
+        this->left=nullptr;
+        this->right=nullptr;
+    }
+};
+class BinaryTree{
+private:
+    Node* root;
+public:
+    BinaryTree(int input){
+        root=new Node(input);
+    }
+    
+    Node* search(Node* current, int data){
+        if(current==nullptr)
+            return nullptr;
+        if(data==current->data)
+            return current;
+        else if(current->data>data)
+            return search(current->left, data);
+        else
+            return search(current->right, data);
+    }
+    
+    void insertNode(Node* newNode){
+        if(search(root, newNode->data)==nullptr){
+            Node* parent = nullptr;
+            Node* current = root;
+            while(current!=nullptr){
+                parent=current;
+                if(newNode->data < parent->data)
+                    current=current->left;
+                else
+                    current=current->right;
+            }
+            if(newNode->data < parent->data)
+                parent->left=newNode;
+            else
+                parent->right=newNode;
+        }
+    }
+    
+    Node* getRoot(){
+        return root;
+    }
+    
+    void visit(Node* current){
+        cout<<current->data<<endl;
+    }
+    
+    void preorder(Node* current){
+        if(current!=nullptr){
+            visit(current);
+            preorder(current->left);
+            preorder(current->right);
+        }
+    }
+};
+void test(){
+    BinaryTree bt = BinaryTree(5);
+    bt.insertNode(new Node(3));
+    bt.insertNode(new Node(8));
+    bt.insertNode(new Node(13));
+    bt.insertNode(new Node(2));
+    bt.insertNode(new Node(11));
+    
+    bt.preorder(bt.getRoot());
+}
+int main(void){
+    test();
+    return 0;
+}
