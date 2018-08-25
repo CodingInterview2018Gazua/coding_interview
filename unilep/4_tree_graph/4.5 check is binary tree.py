@@ -1,6 +1,7 @@
 # -'*' coding: utf-8 '*'
 import Queue
 
+
 class Node:
 	def __init__(self, data):
 		self.data = data
@@ -12,15 +13,17 @@ class Node:
 	
 	def add_right(self, node):
 		self.right = node
-					
+
+
 def check_value(node, left_nodes, right_nodes):
 	for val in left_nodes:
 		if not node.data > val: return False
 	for val in right_nodes:
 		if not node.data < val: return False
 	return True
-	
-def is_binary_search_tree(root, left_nodes = [ ], right_nodes = [ ]):	
+
+
+def is_binary_search_tree(root, left_nodes = [ ], right_nodes = [ ]):
 	result = True
 	if root.left is not None:
 		right_nodes.append(root.data)
@@ -35,6 +38,7 @@ def is_binary_search_tree(root, left_nodes = [ ], right_nodes = [ ]):
 		left_nodes.pop()
 	
 	return result
+
 
 root = Node(4)
 
@@ -53,10 +57,11 @@ right_right = Node(7)
 right.add_left(right_left)
 right.add_right(right_right)
 
+
 '''
-           4
-     2           6
-  1    3      5   7
+				4
+		2				6
+	1		3		5		7
 '''
 
 result = is_binary_search_tree(root)
