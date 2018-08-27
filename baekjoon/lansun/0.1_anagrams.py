@@ -13,11 +13,11 @@ def anagrams(word1, word2):
     return '{} & {} are{} anagrams.'.format(word1, word2, '' if same else ' NOT')
 
 
-count = raw_input('')
+count = raw_input('').strip()
 words = []
 for input_word in range(int(count)):
     try:
-        word = raw_input('')
+        word = raw_input('').strip()
     except EOFError:
         break
     words.append(word)
