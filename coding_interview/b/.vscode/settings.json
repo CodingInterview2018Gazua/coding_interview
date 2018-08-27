@@ -4,7 +4,8 @@
         "vector": "cpp",
         "iomanip": "cpp",
         "ios": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cstddef": "cpp"
     },
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
