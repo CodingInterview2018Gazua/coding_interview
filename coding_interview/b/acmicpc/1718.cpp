@@ -3,9 +3,10 @@
 using namespace std;
 
 #define N_ALPHA 26
+#define SZ_MAX 30001
 char vigenere(char p, char k)
 {
-    char c = p - k;
+    char c = p - k - 1;
     c = c % N_ALPHA;
     if (c < 0)
     {
@@ -15,8 +16,6 @@ char vigenere(char p, char k)
 }
 void ciphering(const char *plain, size_t sz_plain, const char *key, size_t sz_key)
 {
-    cout << "(" << sz_plain << ")" << plain << endl;
-    cout << "(" << sz_key << ")" << key << endl;
     for (int i = 0; i < sz_plain; ++i)
     {
         if (plain[i] == ' ')
@@ -31,10 +30,10 @@ void ciphering(const char *plain, size_t sz_plain, const char *key, size_t sz_ke
 }
 void test()
 {
-    char plain[30000];
-    char key[30000];
-    cin.getline(plain, 30000);
-    cin.getline(key, 30000);
+    char plain[SZ_MAX];
+    char key[SZ_MAX];
+    cin.getline(plain, SZ_MAX);
+    cin.getline(key, SZ_MAX);
     ciphering(plain, strlen(plain), key, strlen(key));
 }
 int main()
