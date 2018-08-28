@@ -14,12 +14,10 @@ def vigenere_cipher(words, encrypt):
 
     for i in range(len(list(words))):
         char = words[i]
-        # print "[{}]".format(char)
         if char is not ' ':
             char_ord = ord(char) - ord('a')
             key = ord(encrypt[i % len(encrypt)]) - 96 # loveove
             result = char_ord - key + 26 if char_ord - key < ord('a') else char_ord - key
-            print encrypt[i % len(encrypt)]
             encrypt_words.append(alphabets[result])
         else:
             encrypt_words.append(' ')
