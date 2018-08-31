@@ -7,12 +7,11 @@ https://www.acmicpc.net/problem/2954
 
 
 def revert_diary(words):
-    vowels = 'aeiou' # 모음 
+    vowels = 'aeiou'
     vowels_patterns = [''.join([vowel, 'p', vowel]) for vowel in vowels]
 
     for i in range(len(vowels_patterns)):
         words = words.replace(vowels_patterns[i], vowels_patterns[i][:1])
-
 
     return words
 
