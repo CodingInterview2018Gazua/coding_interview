@@ -13,12 +13,15 @@ def revert_diary(words):
     for i in range(len(vowels_patterns)):
         words = words.replace(vowels_patterns[i], vowels_patterns[i][:1])
 
+
     return words
 
 
-words = raw_input().split(' ')
+words = raw_input('').strip()
+words = words.split(' ')
 result = []
 for i in range(len(words)):
     result.append(revert_diary(words[i]))
 
 print ' '.join(result)
+
