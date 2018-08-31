@@ -26,6 +26,8 @@ def count_path_with_sum(node, target_sum):
 def count_path_with_sum_from_node(node, target_sum, current_sum):
     if node is None: return 0
 
+    current_sum += node.data
+
     total_path_count = 0
     if current_sum is target_sum: total_path_count += 1
 
