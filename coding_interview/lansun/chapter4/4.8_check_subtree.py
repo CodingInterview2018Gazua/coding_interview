@@ -58,7 +58,7 @@ t2 = BinaryNode(1)
 t2.left = BinaryNode(2)
 t2.right = BinaryNode(3)
 
-print contains_tree(t1, t2)
+print contains_tree(t1, t2) # True
 
 # Another examples
 #
