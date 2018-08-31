@@ -58,7 +58,5 @@ tree.left.left.right = BinaryNode(-2)
 tree.right = BinaryNode(-3)
 tree.right.right = BinaryNode(11)
 
-print tree.right.right.data
-print count_path_with_sum(tree, 0) # 26
-print count_path_with_sum(tree, 8) # 10
-print count_path_with_sum(tree, 4) # 10
+print count_path_with_sum(tree, 0) # 0
+print count_path_with_sum(tree, 8) # 3
