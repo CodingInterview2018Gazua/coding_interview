@@ -1,4 +1,5 @@
-import chapter5.BitInsertion_5_1
+package chapter5
+
 import org.scalatest.FunSuite
 
 class BitInsertion_5_1_Suite extends FunSuite {
