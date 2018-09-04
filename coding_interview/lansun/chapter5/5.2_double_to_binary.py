@@ -16,7 +16,6 @@ def double_to_binary(number):
         else:
             binary.append('0')
 
-        # 비트 감소
         # 0.25      -> 1/4
         # 0.125     -> 1/8
         # 0.0078125 -> 1/16
