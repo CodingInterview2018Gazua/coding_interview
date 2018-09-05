@@ -37,3 +37,14 @@ fun BooleanArray.bitLength() : Int {
 
     return size
 }
+
+fun BooleanArray.getBit1Count() : Int {
+    var count = 0
+
+    for (i in this.size - 1 downTo 0) {
+        if(this[i])
+            count++
+    }
+
+    return count
+}
