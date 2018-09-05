@@ -20,7 +20,6 @@ public class CountOfOne {
         int minResult = binary.getMaxMinOneCount("min");
 
         System.out.println("min = " + minResult + ", max = " + maxResult);
-
     }
 }
 
@@ -29,33 +28,32 @@ class Binary {
     public int oneCount; // 1의 갯수
     public int initDecimalNumber; //초기 10진수 값
     public int decimalNumber; //10진수
+    public char[] binaryChar; // 10진수 > 2진수로 바꾼 값
 
     Binary(int decimalNumber){
         this.decimalNumber = decimalNumber;
         this.initDecimalNumber = decimalNumber;
-        char[] tmpArr = getCharBinary(decimalNumber);
-        this.oneCount = getOneCount(tmpArr);
+        this.oneCount = getCharBinary(decimalNumber).getOneCount();
     }
 
     /**
      * 이진수 변환
      * @param num int
-     * @return binaryChar char[]
+     * @return this Binary
      */
-    public char[] getCharBinary(int num){
+    public Binary getCharBinary(int num){
         String binary = Integer.toBinaryString(num);
-        char[] binaryChar = binary.toCharArray();
-        return binaryChar;
+        this.binaryChar = binary.toCharArray();
+        return this;
     }
 
     /**
      * 이진 수의 1의 갯수
-     * @param arr char[]
      * @return oneCount int
      */
-    public int getOneCount(char[] arr){
+    public int getOneCount(){
         int oneCount = 0;
-        for (char binary: arr) {
+        for (char binary: binaryChar) {
             if(binary == '1'){
                 oneCount++;
             }
@@ -72,8 +70,7 @@ class Binary {
     public int getMaxMinOneCount(String index){
         while(true){
             decimalNumber = (index.equals("max")) ? --decimalNumber : ++decimalNumber;
-            char[] binaryChar = getCharBinary(decimalNumber);
-            int tmpCnt = getOneCount(binaryChar);
+            int tmpCnt = getCharBinary(decimalNumber).getOneCount();
             if(tmpCnt == oneCount){
                 int temp = decimalNumber;
                 decimalNumber = initDecimalNumber;
