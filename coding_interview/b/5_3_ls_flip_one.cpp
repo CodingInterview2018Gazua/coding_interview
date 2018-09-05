@@ -34,7 +34,13 @@ int longestOne(int in) {
 }
 
 int main() {
-    int in = 1775;
+    int in = 0b1111;
+    cout << longestOne(in) << endl;
+    in = 0b01111;
+    cout << longestOne(in) << endl;
+    in = 0b11110;
+    cout << longestOne(in) << endl;
+    in = 0b1110101111;
     cout << longestOne(in) << endl;
     return 0;
 }
