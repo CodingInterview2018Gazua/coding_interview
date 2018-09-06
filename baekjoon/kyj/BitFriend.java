@@ -82,6 +82,6 @@ class Bit{
     }
 
     public int getFriendCnt(){
-        return oneIncorrectCnt + (zeroIncorrectCnt -  oneIncorrectCnt);
+        return zeroIncorrectCnt;
     }
 }
