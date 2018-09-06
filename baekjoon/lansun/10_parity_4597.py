@@ -18,14 +18,14 @@ def replace_bit_string(bit_string):
     once_count = others.count('1')
 
     if last == 'e':
-        others += '0' if is_event(once_count) else '1'
+        others += '0' if is_even(once_count) else '1'
     elif last == 'o':
-        others += '0' if not is_event(once_count) else '1'
+        others += '0' if not is_even(once_count) else '1'
 
     return others
 
 
-def is_event(number):
+def is_even(number):
     return number % 2 == 0
 
 
