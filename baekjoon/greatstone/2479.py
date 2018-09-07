@@ -38,10 +38,14 @@ while q:
 if path[end] == -1:
     print(-1)
 else:
-    result = ""
+    find_path = []
     search_path = end
     while search_path != start:
-        result += str(search_path + 1) + " "
+        find_path.append(search_path + 1)
         search_path = path[search_path]
-    result += str(start + 1)
-    print(result[::-1])
+    find_path.append(start + 1)
+
+    result = ""
+    for item in find_path[::-1]:
+        result += str(item) + ""
+    print(result)
