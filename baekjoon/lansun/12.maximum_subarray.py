@@ -14,6 +14,7 @@ def max_subarray(x):
     maximum_ending = maximum_so_far = x[0]
     for i in x[1:]:
         maximum_ending = max(i, maximum_ending + i)
+        print maximum_so_far, maximum_ending
         maximum_so_far = max(maximum_so_far, maximum_ending)
     return maximum_so_far
 
