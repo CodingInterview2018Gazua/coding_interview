@@ -32,13 +32,11 @@ so_far, ending
 4) 10 => 15
 """
 
-# max_subarray([2, 1, -2, 3, -5])
-print max_subarray([1,2,3,4,5])
-# n = raw_input().strip()
-# numbers = []
-# for i in range(int(n)):
-#     array_number = raw_input().strip()
-#     numbers.append(raw_input().split())
-#
-# for number in numbers:
-#     print max_subarray(map(int, number))
+n = raw_input().strip()
+numbers = []
+for i in range(int(n)):
+    array_number = raw_input().strip()
+    numbers.append(raw_input().split())
+
+for number in numbers:
+    print max_subarray(map(int, number))
