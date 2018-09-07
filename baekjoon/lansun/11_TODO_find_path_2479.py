@@ -9,7 +9,9 @@ https://www.acmicpc.net/problem/2479
 
 
 def hamming_distance(bin1, bin2):
-    print 'Hamming distance is {}.'.format(sum(x != y for x, y in zip(bin1, bin2)))
+    # print 'Hamming distance is {}.'.format(sum(x != y for x, y in zip(bin1, bin2)))
+    x = int(bin1) ^ int(bin2)
+    print x,  int(bin1), int(bin2)
     return sum(x != y for x, y in zip(bin1, bin2))
 
 aa = ['000', '111', '010', '110', '001']
