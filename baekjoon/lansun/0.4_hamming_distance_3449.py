@@ -7,7 +7,7 @@ https://www.acmicpc.net/problem/3449
 
 
 def hamming_distance(bin1, bin2):
-    return 'Hamming distance is {}.'.format(sum(x != y for x, y in zip(bin1, bin2)))
+        return 'Hamming distance is {}.'.format(sum(x != y for x, y in zip(bin1, bin2)))
 
 
 count = raw_input('').strip()
