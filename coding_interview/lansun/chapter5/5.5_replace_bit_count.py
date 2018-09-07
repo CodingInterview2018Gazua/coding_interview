@@ -3,15 +3,15 @@
 # python 2.7
 
 
-def number_to_binary(x):
-    return bin(x).replace('0b', '')
-
-
+# XOR
 def replace_bit_count(a, b):
-    a = number_to_binary(a)
-    b = number_to_binary(b)
+    c = a ^ b
+    count = 0
+    while c:
+        count += c & 1
+        c >>= 1
 
-    return sum(x != y for x, y in zip(a, b)) + (len(a) - len(b))
+    return count
 
 
 def test(a, b):
@@ -21,9 +21,9 @@ def test(a, b):
 def main():
     test(31, 14)
     test(20, 10)
-    test(5, 3)
-    test(6, 4)
-    test(0, -1)
+    test(13, 9)
+    test(7, 10)
+    test(10, 20)
 
 
 main()
