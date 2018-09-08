@@ -1,8 +1,8 @@
 package com.example.lib.chapter5
 
-fun Int.convertToBinary() : BooleanArray {
+fun Int.convertToBinary(bit : Int) : BooleanArray {
     var temp = this
-    val container = BooleanArray(32)
+    val container = BooleanArray(bit)
     var i = 0
 
     while (temp > 0) {
@@ -23,6 +23,19 @@ fun BooleanArray.printToBit() {
     }
 
     print("\n")
+}
+
+fun BooleanArray.convertToString() : String {
+    var bitStr = ""
+
+    for (i in this.size - 1 downTo 0) {
+        bitStr += if(this[i])
+            "1"
+        else
+            "0"
+    }
+
+    return bitStr
 }
 
 fun BooleanArray.bitLength() : Int {
