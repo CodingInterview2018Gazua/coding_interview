@@ -12,6 +12,8 @@ fun main(args: Array<String>) {
         array.add(sc.next())
     }
 
+    array.removeAt(0)
+
     //val test = arrayOf("101e", "010010o", "1e" , "000e" , "110100101o" , "e", "o","#")
 
     array.printParity()
