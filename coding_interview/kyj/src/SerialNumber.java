@@ -45,7 +45,6 @@ class Serial implements Comparable<Serial>{
     }
 
     public int compareSum(String serialNumber1, String serialNumber2){
-
         return (  getSum(serialNumber1) - getSum(serialNumber2) );
     }
 
@@ -53,7 +52,7 @@ class Serial implements Comparable<Serial>{
         int sum = 0;
         for(int i = 0; i < serialNumber.length(); i++){
             if(Character.isDigit(serialNumber.charAt(i))){
-                sum += Character.valueOf(serialNumber.charAt(i));
+                sum += (Integer.parseInt(serialNumber.charAt(i) + ""));
             }
         }
 
