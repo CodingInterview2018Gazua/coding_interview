@@ -4,7 +4,7 @@ fun main(args : Array<String>) {
     printDiffBitCount(10, 20)
 }
 
-fun printDiffBitCount(src : Int, trg : Int) {
+private fun printDiffBitCount(src : Int, trg : Int) {
     val srcBitString = src.convertToBinary(bit = 8).convertToString()
     val trgBitString = trg.convertToBinary(bit = 8).convertToString()
 
