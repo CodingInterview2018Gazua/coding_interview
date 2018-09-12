@@ -23,7 +23,7 @@ public class Test2485 {
 //        int[] streetTreesArr = {2, 6, 12, 18};
 
         StreetTrees streetTrees = new StreetTrees(streetTreesArr);
-        int result = streetTrees.getSubtractArr().getMinValue().getOdd().getResult();
+        int result = streetTrees.getSubtractArr().getDivision().getResult();
 //        streetTrees.printArr();
 //        System.out.println(streetTrees.num);
 //        System.out.println(streetTrees.num);
@@ -35,14 +35,11 @@ class StreetTrees{
 
     int[] streetTreesArr;
     int[] subtractArr;
-
     int minValue;
-    int num;
 
     public StreetTrees(int[] streetTreesArr){
         this.streetTreesArr = streetTreesArr;
         subtractArr = new int[this.streetTreesArr.length - 1];
-
     }
 
     public StreetTrees getSubtractArr(){
@@ -53,21 +50,15 @@ class StreetTrees{
         return this;
     }
 
-    public StreetTrees getMinValue(){
-        Arrays.sort(subtractArr);
-        minValue = subtractArr[0];
 
-        return this;
-    }
-
-    public StreetTrees getOdd(){
-        num = minValue;
+    public StreetTrees getDivision(){
+        minValue =  subtractArr[0];
         int length = subtractArr.length;
         int i = 0;
 
         while(i < length){
-            if(subtractArr[i] % num != 0){
-                num = num / 2;
+            if(subtractArr[i] % minValue != 0){
+                minValue = minValue / 2;
             }else{
                 i++;
             }
@@ -79,7 +70,7 @@ class StreetTrees{
     public int getResult(){
         int result = 0;
         for(int i = 0; i < subtractArr.length; i++){
-            result += (subtractArr[i] / num) - 1;
+            result += (subtractArr[i] / minValue) - 1;
         }
 
         return result;
