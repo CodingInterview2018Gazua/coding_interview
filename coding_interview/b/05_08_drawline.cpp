@@ -43,8 +43,8 @@ int main() {
 
     for (int i = 0; i < h; ++i) {
         for (int j = 0; j < w / 8; ++j) {
-            //cout << hex << setfill('0') << setw(2) << screen[i * (w / 8) + j] << " ";
-            cout << static_cast<int>(screen[i * (w / 8) + j]) << " ";
+            cout << hex << setfill('0') << setw(2) << static_cast<int>(screen[i * (w / 8) + j]) << " ";
+            //cout << static_cast<int>(screen[i * (w / 8) + j]) << " ";
         }
         cout << ";\n";
     }
