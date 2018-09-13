@@ -83,6 +83,13 @@ class LinkedList:
 
         return returned
 
+    def pop(self):
+        if not self.is_empty():
+            answer = self.head.data
+            self.head = self.head.next
+            self.size -= 1
+            return answer
+
     def remove_last(self):
         return self.remove(self.size - 1)
 
