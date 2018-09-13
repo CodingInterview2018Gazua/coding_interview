@@ -21,7 +21,7 @@ public class Test1158 {
         }
 
         while(!deque.isEmpty()) {
-            for(int i = 0; i < M-1; i++) {
+            for(int i = 0; i < M - 1; i++) {
                 deque.addLast(deque.removeFirst());
             }
             sb.append(deque.removeFirst() + ", ");
