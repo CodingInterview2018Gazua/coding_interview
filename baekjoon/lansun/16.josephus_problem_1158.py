@@ -7,7 +7,7 @@
 https://www.acmicpc.net/problem/1158
 """
 import sys
-import collections;
+import collections
 
 queue = collections.deque([]);
 
