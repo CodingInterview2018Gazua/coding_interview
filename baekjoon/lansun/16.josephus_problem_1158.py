@@ -7,19 +7,19 @@
 https://www.acmicpc.net/problem/1158
 """
 import sys
-from Queue import Queue
+import collections
+
+queue = collections.deque([]);
 
 n, m = map(int, sys.stdin.readline().strip().split())
-queue = Queue(n)
 for i in range(1, n+1):
-    queue.put(i)
-
+    queue.append(i)
 
 result = []
-while not queue.empty():
+while len(queue) > 0:
     for i in range(m-1):
-        queue.put(queue.get())
+        queue.append(queue.popleft())
 
-    result.append(str(queue.get()))
+    result.append(str(queue.popleft()))
 
 print '<{}>'.format(', '.join(result))
