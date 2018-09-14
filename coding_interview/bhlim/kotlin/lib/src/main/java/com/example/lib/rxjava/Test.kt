@@ -2,6 +2,8 @@ package com.example.lib.rxjava
 
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
 var int = 11
 
@@ -15,7 +17,22 @@ fun main(args : Array<String>) {
     //just()
     //create()
     //fromArray()
-    callable()
+    //callable()
+    callFuture()
+}
+
+fun callFuture() {
+    val future = Executors.newSingleThreadExecutor().submit {
+        print("ddd")
+    }
+    val source = Observable.fromFuture(future)
+    disp = source.subscribe({
+        disp?.dispose()
+    }, {
+        disp?.dispose()
+    } , {
+        disp?.dispose()
+    })
 }
 
 fun callable() {
