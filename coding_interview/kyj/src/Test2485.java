@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
@@ -9,7 +8,10 @@ import java.util.StringTokenizer;
  */
 public class Test2485 {
     public static void main(String[] args) throws IOException{
-
+        /**
+         * description : 백준 2485번 모든 가로수의 간격이 같게 되는 심어야 하는 최소한의 가로수 수를 구하라.
+         * solution : 유클리드 호제법을 이용한 GCD(Greatest Common Devisor)를 구해서 푼다.
+         */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
@@ -23,10 +25,7 @@ public class Test2485 {
 //        int[] streetTreesArr = {2, 6, 12, 18};
 
         StreetTrees streetTrees = new StreetTrees(streetTreesArr);
-        int result = streetTrees.getSubtractArr().getDivision().getResult();
-//        streetTrees.printArr();
-//        System.out.println(streetTrees.num);
-//        System.out.println(streetTrees.num);
+        int result = streetTrees.getSubtractArr().getGcd().getResult();
         System.out.println(result);
     }
 }
@@ -35,7 +34,7 @@ class StreetTrees{
 
     int[] streetTreesArr;
     int[] subtractArr;
-    int minValue;
+    int gcd;
 
     public StreetTrees(int[] streetTreesArr){
         this.streetTreesArr = streetTreesArr;
@@ -50,27 +49,29 @@ class StreetTrees{
         return this;
     }
 
-
-    public StreetTrees getDivision(){
-        minValue =  subtractArr[0];
-        int length = subtractArr.length;
-        int i = 0;
-
-        while(i < length){
-            if(subtractArr[i] % minValue != 0){
-                minValue = minValue / 2;
-            }else{
-                i++;
-            }
+    public StreetTrees getGcd(){
+        gcd = getGcd(subtractArr[0], subtractArr[1]);
+        for(int i = 2; i < subtractArr.length; i++) {
+            gcd = getGcd(gcd, subtractArr[i]);
         }
 
         return this;
     }
 
+    public int getGcd(int a, int b) {
+
+        if (b == 0) {
+            return a;
+        }
+
+        return getGcd(b,a % b);
+    }
+
     public int getResult(){
+
         int result = 0;
         for(int i = 0; i < subtractArr.length; i++){
-            result += (subtractArr[i] / minValue) - 1;
+            result += (subtractArr[i] / gcd) - 1;
         }
 
         return result;
