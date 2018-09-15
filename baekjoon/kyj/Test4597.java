@@ -6,8 +6,12 @@ import java.util.StringTokenizer;
 /**
  * Created by yong on 2018. 9. 5..
  */
-public class BitParity {
+public class Test4597 {
     public static void main(String[] args) throws IOException{
+        /**
+         * description : 백준 4597번 패리티
+         * solution : 패리티의 1의 갯수의 홀수/짝수 여부를 판단하여 마지막 스트링을 찾아서 출력해 줌
+         */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         while (true) {

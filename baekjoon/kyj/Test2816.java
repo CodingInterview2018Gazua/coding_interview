@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 /**
  * Created by yong on 2018. 9. 8..
  */
-public class DigitalTV {
+public class Test2816 {
     /**
      *
      * @description 백준 2816번 디지털 티비

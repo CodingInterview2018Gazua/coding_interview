@@ -6,8 +6,12 @@ import java.util.StringTokenizer;
 /**
  * Created by yong on 2018. 9. 9..
  */
-public class MaximumSubArray {
+public class Test10211{
     public static void main(String[] args) throws IOException{
+        /**
+         * description : 백준 10211번 subarray 을 만들어 그 원소의 합이 가장 큰 sub array 를 구한다.
+         * solution : Dynamic programming 를 사용해 구한다.
+         */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int T = Integer.parseInt(st.nextToken());
