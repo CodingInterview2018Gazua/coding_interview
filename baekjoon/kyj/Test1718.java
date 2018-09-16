@@ -13,7 +13,7 @@ public class Test1718 {
          *            평문에서 뺀 만큼의 문자로 이동한다.
          * 참고 : 소문자 알파벳 아스키코드 97 ~ 122, 대문자 알파벳 아스키 코드 65 ~ 90
          */
-        final int ALPABATCNT = 26;
+        final int ALPHABATCNT = 26;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String str1 = br.readLine();
         String str2 = br.readLine();
@@ -38,7 +38,7 @@ public class Test1718 {
                 if (tmp > 0) {
                     resultAsc = a + tmp - 1;
                 }else {
-                    resultAsc = ALPABATCNT + tmp;
+                    resultAsc = ALPHABATCNT + tmp;
                     resultAsc = a + resultAsc - 1;
                 }
 
