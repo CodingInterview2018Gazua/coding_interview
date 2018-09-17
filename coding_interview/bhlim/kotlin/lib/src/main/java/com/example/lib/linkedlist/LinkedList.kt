@@ -2,8 +2,6 @@ package com.example.lib.linkedlist
 
 import java.util.Random
 
-
-
 class LinkedList<T> {
     var head: Node<T>? = null
     var tail: Node<T>? = null

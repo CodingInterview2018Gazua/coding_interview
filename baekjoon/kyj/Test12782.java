@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 /**
  * Created by yongjin on 2018-09-04.
  */
-public class BitFriend {
+public class Test12782 {
     public static void main(String[] args) throws IOException{
         /**
          * 백준 비트 우정지수 (12782번)

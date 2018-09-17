@@ -5,8 +5,8 @@ fun main(args : Array<String>) {
 }
 
 fun overlapBits(dest : Int, target: Int, start : Int) {
-    val destBit = dest.convertToBinary()
-    val targetStr = target.convertToBinary()
+    val destBit = dest.convertToBinary(8)
+    val targetStr = target.convertToBinary(8)
 
     print("dest = ")
     destBit.printToBit()
