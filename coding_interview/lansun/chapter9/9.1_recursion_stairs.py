@@ -9,7 +9,7 @@ cache dict 에 recursion을 저장
 
 stairs = {1: 1, 2: 2}
 def upstair_count(n):
-    if n < 0: return 1
+    if n == 0: return 1
     if n not in stairs:
         stairs[n] = upstair_count(n - 1) + upstair_count(n - 2) + upstair_count(n - 3)
 
@@ -21,6 +21,7 @@ def test(n):
 
 
 def main():
+    # test(3)
     test(5)
     test(10)
     test(100)
