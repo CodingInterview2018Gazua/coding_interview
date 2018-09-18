@@ -19,7 +19,7 @@ def find_magic_index_by_recursive(n, start, end):
     mid_value = n[mid]
     if mid_value == mid: return mid
 
-    left = min(mid-1, mid_value)
+    left = min(mid - 1, mid_value)
     left_rec = find_magic_index_by_recursive(n, start, left)
     if left_rec >= 0: return left_rec
 
