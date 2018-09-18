@@ -16,17 +16,16 @@ def upstair_count(n):
     return stairs[n]
 
 
-print upstair_count(3)
-# def test(n):
-#     print "{} : {}".format(n, upstair_count(n))
-#
-#
-# def main():
-#     # test(3)
-#     test(5)
-#     test(10)
-#     test(100)
-#
-#
-# main()
+def test(n):
+    print "{} : {}".format(n, upstair_count(n))
+
+
+def main():
+    # test(3)
+    test(5)
+    test(10)
+    test(100)
+
+
+main()
 
