@@ -5,10 +5,7 @@
 import sys
 sys.setrecursionlimit(100000)
 
-
-loop_count = int(sys.stdin.readline().strip())
-
-
+cache = []
 def coin_count(coin, remain):
     if remain == 0: return 1
     if remain < 0 or coin < 0: return 0
@@ -18,6 +15,7 @@ def coin_count(coin, remain):
     return cache[coin][remain]
 
 
+loop_count = int(sys.stdin.readline().strip())
 for i in range(loop_count):
     n = int(sys.stdin.readline().strip())
     coins = map(int, sys.stdin.readline().split())
@@ -26,5 +24,3 @@ for i in range(loop_count):
     cache = [[-1] * (target_price + 1) for _ in range(n)]
 
     print(coin_count(n - 1, target_price))
-
-
