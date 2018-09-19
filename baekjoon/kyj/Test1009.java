@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 /**
  * Created by yongjin on 2018-09-17.
  */
-public class Test2662 {
+public class Test1009 {
     /**
      * description : 백준 1009번 분산처리.
      * solution : 1. 제곱 수의 일의 자리의 반복 되는 배열을 만든다.
