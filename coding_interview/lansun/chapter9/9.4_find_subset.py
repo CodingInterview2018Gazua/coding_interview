@@ -7,8 +7,6 @@ from itertools import chain, combinations
 
 def powerset(n):
     n = list(n)
-    for r in range(len(n) + 1):
-        print s,r, combinations(n, r)
     return chain.from_iterable(combinations(n, r) for r in range(len(n) + 1))
 
 
