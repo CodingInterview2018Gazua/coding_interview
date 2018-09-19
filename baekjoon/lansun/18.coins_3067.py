@@ -3,6 +3,8 @@
 # python 2.7
 
 import sys
+from collections import defaultdict
+
 sys.setrecursionlimit(100000)
 
 cache = []
@@ -15,6 +17,19 @@ def coin_count(coin, remain):
     return cache[coin][remain]
 
 
+"""
+unilep님 설명듣고 푼 방식
+"""
+def coin_count_dp(coin, target_price):
+    d = defaultdict(lambda: 0)
+    d[0] = 1
+    for i in range(len(coins)):
+        for j in range(coins[i], target_price + 1):
+            d[j] += d[j - coins[i]]
+
+    return d[target_price]
+
+
 loop_count = int(sys.stdin.readline().strip())
 for i in range(loop_count):
     n = int(sys.stdin.readline().strip())
@@ -24,3 +39,9 @@ for i in range(loop_count):
     cache = [[-1] * (target_price + 1) for _ in range(n)]
 
     print(coin_count(n - 1, target_price))
+    print(coin_count_dp(n, target_price))
+
+
+
+
+
