@@ -1,6 +1,13 @@
 /* 
 link: https://www.acmicpc.net/problem/2662
 brute force로 먼저 풀기
+시간초과 발생함
+o n^m
+= o 2^(mlgn)
+= 2^(20 * lg300) m = 20, n = 300 일때
+~= 2^160 ~= 2^120 sec, 2^30 이 1 sec 걸린다고 가정할때,
+
+memoization으로 풀어야 함
 */
 #include <iostream>
 
