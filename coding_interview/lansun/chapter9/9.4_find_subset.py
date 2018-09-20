@@ -5,13 +5,13 @@
 from itertools import chain, combinations
 
 
-def powerset(iterable):
-    s = list(iterable)
-    return chain.from_iterable(combinations(s, r) for r in range(len(s) + 1))
+def powerset(n):
+    n = list(n)
+    return chain.from_iterable(combinations(n, r) for r in range(len(n) + 1))
 
 
-def subsets(s):
-    return map(list, powerset(s))
+def subsets(n):
+    return map(list, powerset(n))
 
 
 def test(n):
