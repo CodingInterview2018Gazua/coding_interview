@@ -18,12 +18,14 @@ fun main(args: Array<String>) {
 
     val coins = ArrayList<Int>()
 
-    for(i in 1 until 21) {
-        coins.add(i)
-    }
+//    for(i in 1 until 21) {
+//        coins.add(i)
+//    }
+
+    coins.add(1)
+    coins.add(2)
 
     maxSum = 100
-
     coins.getCoinSumCount(0, 0)
 
     print("$count\n")
@@ -51,13 +53,6 @@ fun main(args: Array<String>) {
 }
 
 private fun MutableList<Int>.getCoinSumCount(sum : Int, idx : Int) {
-    if(sum == maxSum){
-        count++
-        return
-    } else if(sum > maxSum) {
-        return
-    }
-
     var innerSum = sum
 
     while (innerSum < maxSum) {
