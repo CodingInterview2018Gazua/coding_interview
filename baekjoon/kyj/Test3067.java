@@ -31,9 +31,8 @@ public class Test3067 {
             M = Integer.parseInt(br.readLine());
             dp[0] = 1;
             for(int i = 0; i < N; i++){
-                for(int j = 0; j <= M; j++){
-                    if(j + coin[i] > M) continue;
-                    dp[j + coin[i]] += dp[j];
+                for(int j = coin[i]; j <= M; j++){
+                    dp[j] += dp[j - coin[i]];
                 }
             }
             System.out.println(dp[M]);
