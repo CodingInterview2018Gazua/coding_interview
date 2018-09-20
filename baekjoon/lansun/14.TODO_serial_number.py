@@ -4,7 +4,6 @@
 
 """
 https://www.acmicpc.net/problem/1431
-
 """
 import string
 
