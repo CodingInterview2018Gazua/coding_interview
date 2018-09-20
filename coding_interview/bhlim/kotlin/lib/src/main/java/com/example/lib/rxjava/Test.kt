@@ -3,6 +3,7 @@ package com.example.lib.rxjava
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 var int = 11
 
@@ -20,22 +21,87 @@ fun main(args: Array<String>) {
     //callFuture()
     //map()
     //flatMap()
-    gooGooDan()
+    //gooGooDan()
+    //filter()
+    //reduce()
+    //create2()
+    //interval()
+    //intervalRange()
+
+    intervalRange(2, 10, 1000L).subscribe{
+        print("$it\n")
+    }
+    Thread.sleep(100000000L)
+
 }
 
-fun gooGooDan() {
-    Observable.range(2 ,8).flatMap {
-                Observable.range(1 ,9).map { it2 ->
-                    var str = "$it X $it2 = ${it2 * it}"
+fun intervalRange(start : Int , count : Long, perioid : Long) : Observable<Long> {
+    return Observable.interval(perioid, TimeUnit.MILLISECONDS)
+            .map {
+                it + start
+            }
+            .take(count)
+}
 
-                    if(it2 == 9)
-                        str += "\n"
+fun interval() {
+    Observable.interval(1000, TimeUnit.MILLISECONDS).map {
+        it
+    }.subscribe {
+        print("$it\n")
+    }
+}
 
-                    str
-                }
+fun reduce() {
+    Observable.range(2, 3)
+            .reduce { t1: Int, t2: Int ->
+                t1 * t2
             }.subscribe {
                 print("$it\n")
             }
+}
+
+fun filter() {
+    val source = Observable.range(2, 10)
+
+    source.filter {
+        it % 2 == 0
+    }.doOnSubscribe {
+        print("Filter\n")
+    }.subscribe {
+        print("$it\n")
+    }
+
+    source.take(3)
+            .doOnSubscribe {
+                print("Take\n")
+            }
+            .subscribe {
+                print("$it\n")
+            }
+
+    source.first(5)
+            .doOnSubscribe {
+                print("first\n")
+            }.subscribe({
+                print("$it\n")
+            }, {
+
+            })
+}
+
+fun gooGooDan() {
+    Observable.range(2, 8).flatMap {
+        Observable.range(1, 9).map { it2 ->
+            var str = "$it X $it2 = ${it2 * it}"
+
+            if (it2 == 9)
+                str += "\n"
+
+            str
+        }
+    }.subscribe {
+        print("$it\n")
+    }
 }
 
 fun flatMap() {
@@ -82,6 +148,33 @@ fun fromArray() {
     source.subscribe {
         print("$it\n")
     }
+}
+
+fun create2() {
+    Observable.create<() -> Unit> {
+        it.onNext {
+            print("tread1\n")
+        }
+
+        Thread.sleep(2000)
+
+        it.onNext {
+            print("tread2\n")
+        }
+
+        Thread.sleep(2000)
+
+        it.onComplete()
+    }.doOnSubscribe {
+        print("showProg\n")
+    }.subscribe({
+        it.invoke()
+    }, {
+        print("error\n")
+        print("hideProg\n")
+    }, {
+        print("hideProg\n")
+    })
 }
 
 fun create() {
