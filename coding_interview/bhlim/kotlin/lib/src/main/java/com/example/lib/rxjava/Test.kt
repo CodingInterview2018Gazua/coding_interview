@@ -28,14 +28,51 @@ fun main(args: Array<String>) {
     //interval()
     //intervalRange()
 
-    intervalRange(2, 10, 1000L).subscribe{
+//    intervalRange(2, 10, 1000L).subscribe {
+//        print("$it\n")
+//    }
+//    Thread.sleep(100000000L)
+    //defer()
+    //repeat()
+    heartBeat()
+}
+
+fun heartBeat() {
+    Observable.interval(2000, TimeUnit.MILLISECONDS).map {
+        "send ping $it"
+    }.repeat().subscribe {
+
+    }
+
+    Thread.sleep(100000000L)
+}
+
+fun repeat() {
+    Observable.interval(500, TimeUnit.MILLISECONDS).map {
+        it + 1
+    }.repeat().subscribe {
         print("$it\n")
     }
+
     Thread.sleep(100000000L)
+}
+
+fun defer() {
+    val source = Observable.defer {
+        Observable.just(1, 2, 3)
+    }
+
+    source.subscribe {
+        print("1 = $it\n")
+    }
+
+    source.subscribe {
+        print("2 = $it\n")
+    }
 
 }
 
-fun intervalRange(start : Int , count : Long, perioid : Long) : Observable<Long> {
+fun intervalRange(start: Int, count: Long, perioid: Long): Observable<Long> {
     return Observable.interval(perioid, TimeUnit.MILLISECONDS)
             .map {
                 it + start
