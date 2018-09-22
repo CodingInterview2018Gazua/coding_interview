@@ -10,10 +10,8 @@ from collections import Counter
 
 def solution(clothes):
     closthes_type_count = Counter([x[1] for x in clothes]).values()
-    print closthes_type_count
     answer = 1
     for count in closthes_type_count:
-        print count + 1
         answer *= count + 1
 
     return answer - 1
@@ -25,7 +23,7 @@ def test(clothes):
 
 def main():
     test([['yellow_hat', 'headgear'], ['blue_sunglasses', 'eyewear'], ['green_turban', 'headgear']])
-    # test([['crow_mask', 'face'], ['blue_sunglasses', 'face'], ['smoky_makeup', 'face']])
+    test([['crow_mask', 'face'], ['blue_sunglasses', 'face'], ['smoky_makeup', 'face']])
 
 main()
 
