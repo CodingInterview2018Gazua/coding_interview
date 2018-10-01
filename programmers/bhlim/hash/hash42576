@@ -1,0 +1,45 @@
+package programers;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class hash42576 {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+    }
+
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        Map<String, Integer> participantMap = new HashMap<>();
+
+        for(int i = 0; i < participant.length; i++) {
+            if(participantMap.containsKey(participant[i])) {
+                participantMap.put(participant[i], participantMap.get(participant[i]) + 1);
+            } else {
+                participantMap.put(participant[i], 1);
+            }
+        }
+
+        for(int i = 0; i < completion.length; i++) {
+            participantMap.put(completion[i], participantMap.get(completion[i]) - 1);
+        }
+
+        Iterator<String> Resultkeys = participantMap.keySet().iterator();
+
+        while(Resultkeys.hasNext() ) {
+            String key = Resultkeys.next();
+            int completed = participantMap.get(key);
+
+            if(completed != 0) {
+                answer = key;
+                break;
+            }
+        }
+
+        return answer;
+    }
+
+}
