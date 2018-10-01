@@ -11,6 +11,12 @@ public class hash42576 {
 
     }
 
+    /**
+     participant 입력값을 Map<String, Integer> 으로 만들어서 이름(Key)과 출현빈도(Value, 동명이인)로 데이터를 초기화 합니다.
+     완주자 목록을 loop돌면서 목록에 있으면 출현빈도를 -1 해줌으로써 0으로 만들어 줍니다.
+     완주자 체크를 다 하고나서 출현빈도가 0이 아닌 이름을 최종 결과로 출력합니다.
+     */
+
     public String solution(String[] participant, String[] completion) {
         String answer = "";
         Map<String, Integer> participantMap = new HashMap<>();
