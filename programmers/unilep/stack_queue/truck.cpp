@@ -4,6 +4,25 @@
 #include<iostream>
 using namespace std;
 
+/*
+    answer = 경과 시간
+    on_weight = 다리에 있는 트럭의 무게 총합
+    queue<Node> q = 다리에 있는 트럭의 정보(몇초, 무게)
+    
+    vector<int> truck_weights를 순회하면서
+    on_weight + k(현재 트럭무게) 가 weight(제한) 이하라면 --> (현재 트럭이 다리에 올 수 있다.)
+    on_weight를 k만큼 증가시킨다.
+    q에 현재 트럭을 넣는다.
+    
+    현재 시간 - 큐에 처음에 있는 트럭의 시간 + 1 == 다리길이 인 경우
+    큐에 처음에 있는 트럭은 다리를 건넌 것이다. on_weight를 감소해주고
+    큐에서 뺀다.
+    
+    마지막에 q에 남이있는 트럭이 있을 수 있으므로
+    다리를 다 건널때까지 똑같이 계산한다.
+    
+*/
+
 struct Node {
     int pos;
     int weight;
