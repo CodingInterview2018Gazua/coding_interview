@@ -3,6 +3,10 @@
 #include<stack>
 using namespace std;
 
+/*
+    2중 for문 돌려서 그냥 체크한다.    
+*/
+
 vector<int> solution(vector<int> prices) {
     vector<int> answer;
     stack<int> st;
