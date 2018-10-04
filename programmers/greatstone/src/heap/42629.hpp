@@ -1,10 +1,13 @@
+// 문제: https://programmers.co.kr/learn/courses/30/lessons/42629
+// 풀이: 공급량이 큰 항목을 먼저 출력하는 우선 순위 큐를 사용한다.
+//       현재 가지고 있는 밀가루(stock)로 버틸 수 있는 기간 동안의 공급 중 가장 공급량이 큰 항목을 선택해나가다가
+//       stock이 k 이상이 되면 종료한다.
+
 #include <string>
 #include <vector>
 #include <queue>
 
 using namespace std;
-
-int g_remain;
 
 struct Supply {
     int date;
