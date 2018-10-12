@@ -6,7 +6,6 @@
 #include <string>
 #include <vector>
 #include <queue>
-#include <iostream>
 
 using namespace std;
 
@@ -31,58 +30,83 @@ public:
     }
 };
 
-vector<int> solution(vector<string> operations) {
-    priority_queue<Item*, vector<Item*>, ComparatorDesc> desc_pq;
+class bi_priority_queue {
+private:
+    priority_queue<Item*, vector<Item*>, ComparatorDesc> desc_pq;    
     priority_queue<Item*, vector<Item*>, ComparatorAsc> asc_pq;
+    
+    void adjust_desc_pq() {
+        while (!desc_pq.empty() && desc_pq.top()->deleted) {
+            Item* item = desc_pq.top();
+            desc_pq.pop();
+            delete item;
+        }
+    }
+    
+    void adjust_asc_pq() {
+        while (!asc_pq.empty() && asc_pq.top()->deleted) {
+            Item* item = asc_pq.top();
+            asc_pq.pop();
+            delete item;
+        }
+    }
+public:
+    void push(Item* item) {
+        asc_pq.push(item);
+        desc_pq.push(item);
+    }
+    
+    Item* pop_min() {
+        adjust_asc_pq();
+        Item* item = NULL;
+        if (!asc_pq.empty()) {
+            item = asc_pq.top();
+            item->deleted = true;
+            asc_pq.pop();
+        }
+        return item;
+    }
+    
+    bool empty() {
+        adjust_asc_pq();
+        return asc_pq.empty();
+    }
+    
+    Item* pop_max() {
+        adjust_desc_pq();
+        Item* item = NULL;
+        if (!desc_pq.empty()) {
+            item = desc_pq.top();
+            item->deleted = true;
+            desc_pq.pop();
+        }
+        return item;
+    }
+};
+
+vector<int> solution(vector<string> operations) {
+    bi_priority_queue bpq;
     for (string operation : operations) {
         char command;
         int number;
         sscanf(operation.c_str(), "%c %d", &command, &number);
         if (command == 'I') {
-            Item* item = new Item(number);
-            asc_pq.push(item);
-            desc_pq.push(item);
+            bpq.push(new Item(number));
         } else if (command == 'D') {
             if (number == 1) {
-                while (!desc_pq.empty() && desc_pq.top()->deleted) {
-                    Item* item = desc_pq.top();
-                    desc_pq.pop();
-                    delete item;
-                }
-                if (!desc_pq.empty()) {
-                    desc_pq.top()->deleted = true;
-                    desc_pq.pop();
-                }
+                bpq.pop_max();
             } else if (number == -1) {
-                while (!asc_pq.empty() && asc_pq.top()->deleted) {
-                    Item* item = asc_pq.top();
-                    asc_pq.pop();
-                    delete item;
-                }
-                if (!asc_pq.empty()) {
-                    asc_pq.top()->deleted = true;
-                    asc_pq.pop();
-                }
+                bpq.pop_min();
             }
         }
     }
-    while (!asc_pq.empty() && asc_pq.top()->deleted) {
-        Item* item = asc_pq.top();
-        asc_pq.pop();
-        delete item;
-    }
-    while (!desc_pq.empty() && desc_pq.top()->deleted) {
-        Item* item = desc_pq.top();
-        desc_pq.pop();
-        delete item;
-    }
     vector<int> answer;
-    if (asc_pq.empty()) {
+    if (bpq.empty()) {
         answer.push_back(0);
         answer.push_back(0);
     } else {
-        answer.push_back(desc_pq.top()->number);
-        answer.push_back(asc_pq.top()->number);
+        answer.push_back(bpq.pop_max()->number);
+        answer.push_back(bpq.pop_min()->number);
     }
     return answer;
 }
