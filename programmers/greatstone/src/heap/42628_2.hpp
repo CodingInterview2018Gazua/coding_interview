@@ -1,3 +1,8 @@
+// 문제: https://programmers.co.kr/learn/courses/30/lessons/42628
+// 풀이: 최솟 값을 먼저 빼내는 우선 순위 큐와 최댓 값을 먼저 빼내는 우선 순위 큐 두개를 이용.
+//      삽입은 두 개의 큐에 모두 수행, 삭제는 한쪽에서 삭제 후 삭제되었음을 플래깅
+//      큐를 처리할 때 삭제 플래깅 된 항목은 무시함.
+
 #include <string>
 #include <vector>
 #include <queue>
