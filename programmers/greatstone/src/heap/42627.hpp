@@ -1,8 +1,12 @@
+//문제: https://programmers.co.kr/learn/courses/30/lessons/42627
+//풀이: 1. 주어진 작업을 요청 시간으로 정렬
+//     2. 소요시간이 작은 작업을 우선적으로 꺼내는 우선 순위 큐 사용
+//     3. 새로운 작업이 가능한 시간에 그 동안 요청된 작업 중 소요 시간이 가장 작은 작업을 꺼내어 대기 시간 및 소요 시간 계산
+
 #include <string>
 #include <vector>
 #include <queue>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -33,7 +37,6 @@ int solution(vector<vector<int>> jobs) {
         }
         take_time += (time - pq.top()[0] + pq.top()[1]);
         time += pq.top()[1];
-        cout << take_time << " " << pq.top()[0] << endl;
         pq.pop();
     }
     return take_time / jobs.size();
