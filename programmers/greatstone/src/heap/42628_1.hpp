@@ -1,3 +1,6 @@
+// 문제: https://programmers.co.kr/learn/courses/30/lessons/42628
+// 풀이: C++ STL의 multiset을 사용. multiset은 순서가 보장되는 iterator를 제공함.
+
 #include <string>
 #include <vector>
 #include <set>
