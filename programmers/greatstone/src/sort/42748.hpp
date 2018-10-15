@@ -1,3 +1,6 @@
+// 문제: https://programmers.co.kr/learn/courses/30/lessons/42748
+// 풀이: 문제에 주어진 대로 일부 배열 복사하고 정렬하고 해당 위치 값 
+
 #include <string>
 #include <vector>
 #include <algorithm>
