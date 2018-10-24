@@ -5,90 +5,37 @@ import java.util.concurrent.LinkedBlockingQueue
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-//fun main(args: Array<String>) {
-//    val datas = HashMap<Int, ArrayList<Int>>()
-//
-//    var arr = ArrayList<Int>()
-//
-//    arr.add(2)
-//    arr.add(3)
-//    arr.add(4)
-//
-//    datas[1] = arr
-//
-//    ///////////
-//
-//    arr = ArrayList()
-//
-//    arr.add(1)
-//    arr.add(4)
-//
-//    datas[2] = arr
-//
-//    ////////////
-//
-//    arr = ArrayList()
-//
-//    arr.add(1)
-//    arr.add(4)
-//
-//    datas[3] = arr
-//
-//    ////////////
-//
-//    arr = ArrayList()
-//
-//    arr.add(1)
-//    arr.add(2)
-//
-//    datas[4] = arr
-//
-//    datas.dfs(1)
-//    datas.bfs(1)
-//}
-
 fun main(args: Array<String>) {
-
     val array = ArrayList<String>()
-    //val sc = Scanner(System.`in`)
+    val sc = Scanner(System.`in`)
 
-
-//    while (sc.hasNextLine()) {
-//        array.add(sc.nextLine())
-//    }
+    while (sc.hasNextLine()) {
+        array.add(sc.nextLine())
+    }
 
 //    array.add("4 5 1")
+//
 //    array.add("1 2")
-//    array.add("1 3")
-//    array.add("1 4")
+//    array.add("1 5")
+//
+//    array.add("2 1")
+//    array.add("2 3")
 //    array.add("2 4")
+//    array.add("2 5")
+//
+//    array.add("3 2")
 //    array.add("3 4")
-
-    array.add("4 5 1")
-
-    array.add("1 2")
-    array.add("1 5")
-
-    array.add("2 1")
-    array.add("2 3")
-    array.add("2 4")
-    array.add("2 5")
-
-    array.add("3 2")
-    array.add("3 4")
-
-    array.add("4 3")
-    array.add("4 5")
-    array.add("4 2")
-    array.add("4 6")
-
-    array.add("5 1")
-    array.add("5 2")
-    array.add("5 4")
-
-    array.add("6 4")
-
-
+//
+//    array.add("4 3")
+//    array.add("4 5")
+//    array.add("4 2")
+//    array.add("4 6")
+//
+//    array.add("5 1")
+//    array.add("5 2")
+//    array.add("5 4")
+//
+//    array.add("6 4")
 
     val startLine = array[0]
 
@@ -153,10 +100,14 @@ private fun Map<Int, ArrayList<Int>>.dfs(start : Int) {
 
                 val dests = this[pop]
 
-                dests?.forEach {
-                    if(!resultArr.contains(it) && !stack.contains(it))
-                        stack.push(it)
+                for(i in dests!!.size -1 downTo 0) {
+                    if(!resultArr.contains(dests[i]))
+                        stack.push(dests[i])
                 }
+//                dests?.forEach {
+//                    if(!resultArr.contains(it) && !stack.contains(it))
+//                        stack.push(it)
+//                }
             }
         }
 
@@ -188,7 +139,7 @@ private fun Map<Int, ArrayList<Int>>.bfs(start : Int) {
             val dests = this[pop]
 
             dests?.forEach {
-                if(!resultArr.contains(it) && !queue.contains(it))
+                if(!resultArr.contains(it))
                     queue.add(it)
             }
         }
