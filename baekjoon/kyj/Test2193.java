@@ -13,6 +13,7 @@ public class Test2193 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(br.readLine());
         long[] arr = new long[num + 1];
+
         arr[0] = 1;
         arr[1] = 1;
         for (int i = 2; i < arr.length; i++){
