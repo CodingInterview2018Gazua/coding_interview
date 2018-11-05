@@ -9,6 +9,8 @@ public class Test6236 {
 
     public static int []m = new int[100003];
     public static int N, M;
+    public static int start;
+    public static int sum;
     public static void main(String[] arg) throws IOException{
         /**
          * description : 백준 6236번 용돈관리
@@ -20,19 +22,18 @@ public class Test6236 {
         N = Integer.parseInt(strs[0]);
         M = Integer.parseInt(strs[1]);
 
-        int start = 1;
-        int num = 1000000000;
         for (int i = 0; i < N; i++) {
             m[i] = Integer.parseInt(br.readLine());
             start = Math.max(start, m[i]);
+            sum += m[i];
         }
 
-        while (start < num) {
-            int mid = (start + num) / 2;
+        while (start < sum) {
+            int mid = (start + sum) / 2;
             if (calc(mid) > M) {
                 start = mid + 1;
             }else {
-                num = mid;
+                sum = mid;
             }
         }
 
