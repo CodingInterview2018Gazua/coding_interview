@@ -2,11 +2,6 @@ package com.example.hoo.rxjava.baekjoon
 
 import java.util.*
 
-private var A = 0L
-private var B = 0L
-
-private var chicken = 0L
-
 fun main(args: Array<String>) {
     val source = ArrayList<String>()
     val sc = Scanner(System.`in`)
@@ -15,24 +10,11 @@ fun main(args: Array<String>) {
         source.add(sc.nextLine())
     }
 
-//    source.add("87 31")
-//    source.add("20000")
+    val ds = intArrayOf(3,5,2,1)
 
-//    source.add("15000 6000")
-//    source.add("5000")
+    for(i in 0 until 6) {
+        for(j in i + 1 until 6) {
 
-//    source.add("1000000000 1000000000")
-//    source.add("1000000001")
-
-    source[0].split(" ").apply {
-        A = this[0].toLong()
-        B = this[1].toLong()
+        }
     }
-
-    chicken = source[1].toLong()
-
-    if (chicken * 2 <= A + B)
-        print(A + B - chicken * 2)
-    else
-        print(A + B)
 }
