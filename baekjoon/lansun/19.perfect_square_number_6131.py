@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 # python 2.7
 
-a = int(raw_input())
 result = 0
-n = 501
-for i in range(1, n):
-    for j in range(i, n):
-        result += j**2 - i**2 == a
+end = 501
+n = int(raw_input())
+for i in range(1, end):
+    for j in range(i, end):
+        result += j ** 2 - i ** 2 == n
 print result
