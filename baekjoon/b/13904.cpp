@@ -1,5 +1,12 @@
 /*
 link: https://www.acmicpc.net/problem/13904
+풀이:
+1. 남은날짜로 내림차순 정렬 (구현에선 vector의 마지막 원소부터 빼서 썻음)
+2. 첫 element의 남은 날짜와 같은 날짜의 element들을 max heap으로 만들기
+3. max heap에서 하나 빼기-> 점수는 누적
+4. 2번에서 남은날짜 기억했던 값과 -1 한 값을 (deadline) list에 있는 element의 남은날짜와 비교, 같은 element들을 max heap에 추가
+=> list가 empty이면 수행 x
+5. deadline이 0이 될때까지 3~4 반복
 */
 
 #include <algorithm>
