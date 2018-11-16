@@ -39,12 +39,12 @@ public class Test1074 {
             return;
         }
 
-        recursion(x, y,len / 2);
+        recursion(x, y, len / 2);
 
-        recursion(x,y + len / 2,len / 2);
+        recursion(x, y + len / 2, len / 2);
 
-        recursion(x + len / 2, y,len / 2);
+        recursion(x + len / 2, y, len / 2);
 
-        recursion(x + len / 2,y + len / 2,len / 2);
+        recursion(x + len / 2, y + len / 2, len / 2);
     }
 }
