@@ -62,7 +62,7 @@ public class Test1516 {
             for(int i = 0; i < list[current].size(); i++) {
                 int next = list[current].get(i);
                 indegree[next]--;
-                //임계경로 설정
+                //임계경로 설정, 다른 조건으로 갱신될 수 있기 때문에
                 result[next] = Math.max(result[next], result[current] + times[next]);
 
                 if (indegree[next] == 0) {
