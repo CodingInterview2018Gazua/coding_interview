@@ -9,7 +9,10 @@ public class Test2579 {
     public static void main(String[] args)throws IOException{
         /**
          * description : 백준 2579번 계단 오르기
-         * solution : dp로 접근하여, 마지막 계단 전을 밟은 경우, 마지막 계단 전전을 밟은 경우로 나누어서 접근.
+         * solution : 1. dp로 접근한다.
+         *            2. 1번째, 2번째, 3번째 계단을 오르는 경우를 dp 배열에 넣어준다
+         *            3. 그 이후에, 목표 계단에 도달하는 방법은 목표 계단 전 계단을 밡은 경우, 목표계단 전전 계단을 밟은 경우 이므로
+         *            4. 두 경우의 Max 값을 출력한다.
          */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
