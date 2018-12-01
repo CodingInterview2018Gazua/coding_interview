@@ -2,6 +2,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Created by yong on 2018. 11. 2..
+ */
 public class Test2193 {
 
     public static void main(String[] args) throws IOException {
