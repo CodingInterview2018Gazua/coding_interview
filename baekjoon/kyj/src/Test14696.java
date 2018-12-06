@@ -8,6 +8,9 @@ import java.util.Arrays;
 
 public class Test14696 {
     public static void main(String[] args) throws IOException {
+        /**
+         *
+         */
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("test.txt")));
         int N = Integer.parseInt(br.readLine());
 
