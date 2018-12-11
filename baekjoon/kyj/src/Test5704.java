@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 public class Test5704 {
     public static void main(String[] args) throws IOException{
         /**
-         * description : 5704번 팬그램
+         * description : 백준 5704번 팬그램
          * solution : 입력받은 문자열(평문)을 기준으로 반복문을 돌리면서 알파벳 배열에 원소가 있으면
          *            카운트 배열에 숫자를 더한다. 카운트 배열에 0이 검색되면 펜그램이 N으로 판별한다.
          */
@@ -19,7 +19,6 @@ public class Test5704 {
         while((line = br.readLine().trim()) != null && !line.equals("*")){
             int[] cntArr = new int[ALPHABATCNT];
             char[] charArr = line.toCharArray();
-
             int length1 = charArr.length;
             int length2 = alphaArr.length;
             char isPangram = 'Y';
