@@ -26,7 +26,6 @@ public class Test2847 {
                 arr[i - 1] = arr[i] - 1;
             }
         }
-
         System.out.println(num);
     }
 }
