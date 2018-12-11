@@ -36,7 +36,6 @@ public class Test6236 {
                 sum = mid;
             }
         }
-
         System.out.println(start);
     }
 
