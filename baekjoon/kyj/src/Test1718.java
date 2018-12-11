@@ -44,7 +44,6 @@ public class Test1718 {
 
                 resultChar = (char)resultAsc;
             }
-
             result += resultChar;
         }
 
