@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 public class Test2485 {
     public static void main(String[] args) throws IOException{
         /**
-         * description : 백준 2485번 모든 가로수의 간격이 같게 되는 심어야 하는 최소한의 가로수 수를 구하라.
+         * description : 백준 2485번 가로수 (모든 가로수의 간격이 같게 되는 심어야 하는 최소한의 가로수 수를 구하라.)
          * solution : 유클리드 호제법을 이용한 GCD(Greatest Common Devisor)를 구해서 푼다.
          */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
