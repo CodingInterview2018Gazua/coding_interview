@@ -14,7 +14,7 @@ public class Test2263 {
 
     public static void main(String[] args) throws IOException{
         /**
-         * description : 백준 2263번 이진트리의 in order와 post order의 값을 보고 pre order로 순회된 값을 구하여라
+         * description : 백준 2263번 트리의 순회 (이진트리의 in order와 post order의 값을 보고 pre order로 순회된 값을 구하여라)
          * solution :
          */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
