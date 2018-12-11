@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 public class Test5639{
     public static void main(String[] args) throws IOException {
         /**
-         * description : Binary search tree를 Pre order 한 결과를 받아서 Post order 한 결과를 출력하라.
+         * description : 백준 5639번 이진검색트리 Binary search tree를 Pre order 한 결과를 받아서 Post order 한 결과를 출력하라.
          * solution : Pre order 의 결과로 Tree를 만들고 다시 Post order 한 결과를 출력한다.
          */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
