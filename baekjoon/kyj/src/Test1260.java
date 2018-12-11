@@ -61,7 +61,6 @@ public class Test1260 {
 
     public static void bfs(int start, int end){
         Queue<Integer> queue = new LinkedList<>();
-
         queue.offer(start);
         visited[start] = true;
         while(!queue.isEmpty()){
