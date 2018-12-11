@@ -27,7 +27,6 @@ public class Test4597 {
             String returnStr = bitString.getCharBinary().getOneCount().getLastChar().getFullBitString();
             System.out.println(returnStr);
         }
-
     }
 }
 
