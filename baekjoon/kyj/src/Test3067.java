@@ -9,8 +9,7 @@ import java.util.StringTokenizer;
 public class Test3067 {
     public static void main(String[] args) throws IOException{
         /**
-         * description : 백준 3067번 Coin, 동전의 종류가 주어질 때 주어진 금액을 만드는 모든 방법을 세는 프로그램.
-         *               (DP 연습)
+         * description : 백준 3067번 Coin, 동전의 종류가 주어질 때 주어진 금액을 만드는 모든 방법을 세는 프로그램. (DP 연습)
          * solution : 3067.cpp 참고
          */
         int T, N, M;
