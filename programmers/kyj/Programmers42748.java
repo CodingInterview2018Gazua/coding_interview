@@ -19,12 +19,9 @@ public class Programmers42748 {
     }
 
     public static int[] solution(int[] array, int[][] commands){
-        int startIdx;
-        int endIdx;
-        int idx;
-        int k;
+        int startIdx, endIdx, idx, k;
         int[] tmpArray;
-        int[] answer = new int[commands.length];
+        int[] answer    = new int[commands.length];
         for(int i = 0; i < commands.length; i ++){
             startIdx    = commands[i][0];
             endIdx      = commands[i][1];
