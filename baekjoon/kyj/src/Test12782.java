@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 public class Test12782 {
     public static void main(String[] args) throws IOException{
         /**
-         * 백준 비트 우정지수 (12782번)
+         * description : 백준 비트 우정지수 (12782번)
          * Input  : 각 테스트케이스의 첫 번째 줄에는 두 이진수 N, M이 주어진다. N, M의 자릿수는 1,000,000을 넘지 않으며, 자릿수는 서로 같다.
          * Output : 각 테스트 케이스마다 두 수의 비트 우정지수를 출력한다.
          */

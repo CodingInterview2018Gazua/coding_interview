@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 public class Test1718 {
     public static void main(String[] args) throws IOException{
         /**
-         * description : 1718번 암호
+         * description : 백준 1718번 암호
          * solution : 첫 번째 문자열(평문)을 기준으로 반복문을 돌리면서 두 번째 문자열(암호키)을
          *            평문에서 뺀 만큼의 문자로 이동한다.
          * 참고 : 소문자 알파벳 아스키코드 97 ~ 122, 대문자 알파벳 아스키 코드 65 ~ 90
@@ -44,7 +44,6 @@ public class Test1718 {
 
                 resultChar = (char)resultAsc;
             }
-
             result += resultChar;
         }
 

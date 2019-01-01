@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 public class Test6996 {
     public static void main(String[] args) throws IOException{
         /**
-         * description : 첫 번째 문자열의 알파벳 순서를 바꿔서 두 번째 문자열을 만들 수 있을 때, 이를 에너그램이라고 한다
+         * description : 백준 6996번 에너그램 (첫 번째 문자열의 알파벳 순서를 바꿔서 두 번째 문자열을 만들 수 있을 때, 이를 에너그램이라고 한다.)
          * solution : 입력 받은 문자열을 Character Array로 만들어서 두 번째 배열의 문자 하나하나를 기준으로
          *            반복문을 돌려가며 첫 번째 배열에 알파벳이 있는지 검사한다. 주의 할 점은 두 배열의 크기가 다르면 에너그램이 성립할 수 없다.
          */
