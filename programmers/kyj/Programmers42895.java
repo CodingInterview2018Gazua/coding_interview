@@ -2,6 +2,10 @@ public class Programmers42895 {
 
     public static int answer = -1;
     public static void main(String[] args){
+        /**
+         * description : 프로그래머스 42895번 N으로 표현 (https://programmers.co.kr/learn/courses/30/lessons/42895?language=java)
+         * solution : 나중에 다시 봐야하는 코드
+         */
         int cnt = solution(5, 12);
         System.out.println(cnt);
     }
